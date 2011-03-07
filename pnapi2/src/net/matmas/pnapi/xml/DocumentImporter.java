@@ -37,6 +37,14 @@ public class DocumentImporter {
 		return getDocument();
 	}
 
+        public Document readFromBytes(byte[] Byte) throws Exception {
+		Serializer serializer = new Persister();
+                String value = new String(Byte);
+                xmlDocument = serializer.read(XmlDocument.class,value);
+		idToXmlObject = new IdToXmlObject(xmlDocument);
+		return getDocument();
+	}
+
 	public Document readFromFileWithXslt(File file, InputStream xslt) throws TransformerException, IOException, Exception  {
 		if (xslt == null) {
 			return readFromFile(file);
