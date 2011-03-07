@@ -180,6 +180,15 @@ public class PetriNet implements Iterable<Element>, WithProperties {
 		this.draw(cachedGraphics, drawingOptions);
 		return cachedGraphics.getIntegerBounds();
 	}
+        
+        public Rectangle getBounds() {
+                DrawingOptions drawingOptions = new DrawingOptions();
+		CachedGraphics2D cachedGraphics = new CachedGraphics2D();
+		this.draw(cachedGraphics,drawingOptions);
+		return cachedGraphics.getIntegerBounds();
+	}
+
+
 	
 	/**
 	 * Returns an preview image of the net with specified marking.
