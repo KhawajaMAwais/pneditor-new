@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Set;
 import net.matmas.pnapi.properties.WithProperties;
 import net.matmas.pnapi.properties.Properties;
+import net.matmas.pnapi.properties.Property;
+import net.matmas.pnapi.properties.StringProperty;
 import net.matmas.util.CachedGraphics2D;
 import net.matmas.util.Point;
 
@@ -338,6 +340,17 @@ public class PetriNet implements Iterable<Element>, WithProperties {
 	public IdGenerator getIdGenerator() {
 		return idGenerator;
 	}
+
+        public String getPetrinetName(){
+            String name = null;
+            for(Property prop:this.getProperties()){
+                if(prop.getId().equals("name")){
+                    StringProperty strprop = (StringProperty) prop;
+                    name = strprop.getText();
+                }
+            }
+            return name;
+        }
 
 	// -------------------------------------------------------------------------
 
