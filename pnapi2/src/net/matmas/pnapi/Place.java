@@ -2,6 +2,8 @@ package net.matmas.pnapi;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import net.matmas.pnapi.properties.BooleanProperty;
+import net.matmas.pnapi.properties.Properties;
 import net.matmas.util.GraphicsTools;
 import net.matmas.util.GraphicsTools.HorizontalAlignment;
 import net.matmas.util.GraphicsTools.VerticalAlignment;
@@ -261,5 +263,9 @@ public class Place extends Node implements Cloneable {
 	public boolean canBeMovedFrom(Point point) {
 		return containsPoint(point);
 	}
+
+        public boolean isStatic(){
+           return this.getProperties().containsPropertyWithId("static");
+        }
 
 }
