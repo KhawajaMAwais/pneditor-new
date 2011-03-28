@@ -26,6 +26,7 @@ import net.matmas.pneditor.actions.CopyAction;
 import net.matmas.pneditor.actions.SelectSubnetToolAction;
 import net.matmas.pneditor.actions.CutAction;
 import net.matmas.pneditor.actions.DeleteAction;
+import net.matmas.pneditor.actions.DeployToServerAction;
 import net.matmas.pneditor.actions.NewFileAction;
 import net.matmas.pneditor.actions.OpenFileAction;
 import net.matmas.pneditor.actions.OpenPropertiesAction;
@@ -102,6 +103,7 @@ public class MainFrame extends JFrame implements WindowListener {
 	private Action openFileAction = new OpenFileAction();
 	private Action saveFileAction = new SaveFileAction();
 	private Action saveFileAsAction = new SaveFileAsAction();
+    private Action deployToServerAction = new DeployToServerAction();
 	private Action quitAction = new QuitAction();
 	
 	public Action undoAction = new UndoAction();
@@ -174,6 +176,7 @@ public class MainFrame extends JFrame implements WindowListener {
 		fileMenu.add(openFileAction);
 		fileMenu.add(saveFileAction);
 		fileMenu.add(saveFileAsAction);
+        fileMenu.add(deployToServerAction);
 		fileMenu.add(quitAction);
 
 		editMenu.add(undoAction);
