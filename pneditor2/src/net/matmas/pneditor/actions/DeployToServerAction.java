@@ -19,7 +19,7 @@ public class DeployToServerAction extends Action {
 	public DeployToServerAction() {
 		String name = "Deploy to server";
 		putValue(NAME, name);
-		putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/export.gif"));
+		putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/upload.png"));
 		putValue(SHORT_DESCRIPTION, name);
 	}
 
