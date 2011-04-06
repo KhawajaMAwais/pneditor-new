@@ -166,6 +166,10 @@ public class MainFrame extends JFrame implements WindowListener {
 		elementMenu.setMnemonic('l');
 		menuBar.add(elementMenu);
 
+                JMenu analyzeMenu = new JMenu("Analyze");
+		elementMenu.setMnemonic('A');
+		menuBar.add(analyzeMenu);
+
 		JMenu helpMenu = new JMenu("Help");
 		helpMenu.setMnemonic('H');
 		menuBar.add(helpMenu);
@@ -200,6 +204,9 @@ public class MainFrame extends JFrame implements WindowListener {
 		elementMenu.add(setArcMultiplicityAction);
 		elementMenu.add(openPropertiesAction);
                 elementMenu.add(openTimePropertiesAction);
+
+                analyzeMenu.add(new AnalyzeAction());
+                analyzeMenu.add(deployToServerAction);
 
 		helpMenu.add(aboutAction);
 	}
@@ -240,7 +247,9 @@ public class MainFrame extends JFrame implements WindowListener {
 		toolBar.add(selectSubnetToolToggleButton);		selectSubnetToolToggleButton.setText("");
 		toolBar.add(selectFireToolToggleButton);		selectFireToolToggleButton.setText("");
 
+                toolBar.addSeparator();
 		toolBar.add(new AnalyzeAction());
+                toolBar.add(deployToServerAction);
 
 		ButtonGroup selectToolButtonGroup = new ButtonGroup();
 		selectToolButtonGroup.add(selectSelectionToolToggleButton);
