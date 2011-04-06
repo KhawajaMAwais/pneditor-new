@@ -9,6 +9,7 @@ import net.matmas.pnapi.Place;
 import net.matmas.pnapi.Transition;
 import net.matmas.pneditor.PNEditor;
 import net.matmas.pneditor.properties.OutPutTimeDialog;
+import net.matmas.util.GraphicsTools;
 
 
 
@@ -27,9 +28,10 @@ public class AnalyzeAction extends Action {
     public double casetime;
     public double casewaittime;
     public AnalyzeAction() {
-		String name = "Analyze";
+		String name = "Time Analyze";
 		putValue(NAME, name);
-		putValue(SHORT_DESCRIPTION, name);
+		putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/timeanal.png"));
+                putValue(SHORT_DESCRIPTION, name);
 		setEnabled(true);
 
 	}
