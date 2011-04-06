@@ -25,16 +25,19 @@ import net.matmas.pneditor.actions.AnalyzeAction;
 import net.matmas.pneditor.actions.CopyAction;
 import net.matmas.pneditor.actions.SelectSubnetToolAction;
 import net.matmas.pneditor.actions.CutAction;
+import net.matmas.pneditor.actions.DataModelAction;
 import net.matmas.pneditor.actions.DeleteAction;
 import net.matmas.pneditor.actions.DeployToServerAction;
 import net.matmas.pneditor.actions.NewFileAction;
 import net.matmas.pneditor.actions.OpenFileAction;
 import net.matmas.pneditor.actions.OpenPropertiesAction;
 import net.matmas.pneditor.actions.OpenTimePropertiesAction;
+import net.matmas.pneditor.actions.PInvariantAction;
 import net.matmas.pneditor.actions.PasteAction;
 import net.matmas.pneditor.actions.SelectArcToolAction;
 import net.matmas.pneditor.actions.SelectPlaceToolAction;
 import net.matmas.pneditor.actions.QuitAction;
+import net.matmas.pneditor.actions.ReachabilityAction;
 import net.matmas.pneditor.actions.RedoAction;
 import net.matmas.pneditor.actions.SaveFileAction;
 import net.matmas.pneditor.actions.SaveFileAsAction;
@@ -45,6 +48,7 @@ import net.matmas.pneditor.actions.SelectTransitionToolAction;
 import net.matmas.pneditor.actions.SetArcMultiplicityAction;
 import net.matmas.pneditor.actions.SetLabelAction;
 import net.matmas.pneditor.actions.SetTokensAction;
+import net.matmas.pneditor.actions.TInvariantAction;
 import net.matmas.pneditor.actions.UndoAction;
 import net.matmas.util.GraphicsTools;
 
@@ -104,6 +108,10 @@ public class MainFrame extends JFrame implements WindowListener {
 	private Action saveFileAction = new SaveFileAction();
 	private Action saveFileAsAction = new SaveFileAsAction();
         private Action deployToServerAction = new DeployToServerAction();
+        private Action pInvariant = new PInvariantAction();
+        private Action tInvariant = new TInvariantAction();
+        private Action DataModelAction = new DataModelAction();
+        private Action ReachabilityAction = new ReachabilityAction();
 	private Action quitAction = new QuitAction();
 	
 	public Action undoAction = new UndoAction();
@@ -206,7 +214,11 @@ public class MainFrame extends JFrame implements WindowListener {
                 elementMenu.add(openTimePropertiesAction);
 
                 analyzeMenu.add(new AnalyzeAction());
+                analyzeMenu.add(DataModelAction);
                 analyzeMenu.add(deployToServerAction);
+                analyzeMenu.add(pInvariant);
+                analyzeMenu.add(tInvariant);
+                analyzeMenu.add(ReachabilityAction);
 
 		helpMenu.add(aboutAction);
 	}
@@ -249,7 +261,11 @@ public class MainFrame extends JFrame implements WindowListener {
 
                 toolBar.addSeparator();
 		toolBar.add(new AnalyzeAction());
+                toolBar.add(DataModelAction);
                 toolBar.add(deployToServerAction);
+                toolBar.add(pInvariant);
+                toolBar.add(tInvariant);
+                toolBar.add(ReachabilityAction);
 
 		ButtonGroup selectToolButtonGroup = new ButtonGroup();
 		selectToolButtonGroup.add(selectSelectionToolToggleButton);
