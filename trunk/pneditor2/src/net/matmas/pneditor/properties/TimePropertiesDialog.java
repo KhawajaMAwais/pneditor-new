@@ -208,7 +208,7 @@ public class TimePropertiesDialog extends JFrame implements ActionListener {
                             place.setIsStartPlace(start.isSelected());
                             place.setIsEndPlace(end.isSelected());
                             place.setIsIterationStart(iterstart.isSelected());
-                            place.setIsORSplit(orsplit.isSelected());                          
+                            place.setIsORSplit(orsplit.isSelected());
                         }
                     }
                 }
@@ -253,6 +253,7 @@ public class TimePropertiesDialog extends JFrame implements ActionListener {
 
             if(e.getActionCommand().equals("Cancel")){
                 this.dispose();
+                System.out.println(petriNet.getPetrinetName());
             }
             if(e.getActionCommand().equals("Set Or Split")){
               for (Place place : petriNet.getPlaces()) {
