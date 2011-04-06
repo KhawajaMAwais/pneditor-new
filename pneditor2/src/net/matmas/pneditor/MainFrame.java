@@ -49,6 +49,7 @@ import net.matmas.pneditor.actions.SetArcMultiplicityAction;
 import net.matmas.pneditor.actions.SetLabelAction;
 import net.matmas.pneditor.actions.SetTokensAction;
 import net.matmas.pneditor.actions.TInvariantAction;
+import net.matmas.pneditor.actions.TokenFlowAction;
 import net.matmas.pneditor.actions.UndoAction;
 import net.matmas.util.GraphicsTools;
 
@@ -112,6 +113,7 @@ public class MainFrame extends JFrame implements WindowListener {
         private Action tInvariant = new TInvariantAction();
         private Action DataModelAction = new DataModelAction();
         private Action ReachabilityAction = new ReachabilityAction();
+        private Action TokenFlowAction = new TokenFlowAction();
 	private Action quitAction = new QuitAction();
 	
 	public Action undoAction = new UndoAction();
@@ -219,6 +221,7 @@ public class MainFrame extends JFrame implements WindowListener {
                 analyzeMenu.add(pInvariant);
                 analyzeMenu.add(tInvariant);
                 analyzeMenu.add(ReachabilityAction);
+                analyzeMenu.add(TokenFlowAction);
 
 		helpMenu.add(aboutAction);
 	}
@@ -266,6 +269,7 @@ public class MainFrame extends JFrame implements WindowListener {
                 toolBar.add(pInvariant);
                 toolBar.add(tInvariant);
                 toolBar.add(ReachabilityAction);
+                toolBar.add(TokenFlowAction);
 
 		ButtonGroup selectToolButtonGroup = new ButtonGroup();
 		selectToolButtonGroup.add(selectSelectionToolToggleButton);
