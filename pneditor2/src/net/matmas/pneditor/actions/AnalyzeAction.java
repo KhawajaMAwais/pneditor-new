@@ -28,7 +28,7 @@ public class AnalyzeAction extends Action {
     public double casetime;
     public double casewaittime;
     public AnalyzeAction() {
-		String name = "Time Analyze";
+		String name = "Time analyze";
 		putValue(NAME, name);
 		putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/timeanal.png"));
                 putValue(SHORT_DESCRIPTION, name);
