@@ -28,6 +28,7 @@ import net.matmas.pneditor.actions.CutAction;
 import net.matmas.pneditor.actions.DataModelAction;
 import net.matmas.pneditor.actions.DeleteAction;
 import net.matmas.pneditor.actions.DeployToServerAction;
+import net.matmas.pneditor.actions.DynSoundAction;
 import net.matmas.pneditor.actions.NewFileAction;
 import net.matmas.pneditor.actions.OpenFileAction;
 import net.matmas.pneditor.actions.OpenPropertiesAction;
@@ -114,6 +115,7 @@ public class MainFrame extends JFrame implements WindowListener {
         private Action DataModelAction = new DataModelAction();
         private Action ReachabilityAction = new ReachabilityAction();
         private Action TokenFlowAction = new TokenFlowAction();
+        private Action DynSoundAction = new DynSoundAction();
 	private Action quitAction = new QuitAction();
 	
 	public Action undoAction = new UndoAction();
@@ -222,6 +224,7 @@ public class MainFrame extends JFrame implements WindowListener {
                 analyzeMenu.add(tInvariant);
                 analyzeMenu.add(ReachabilityAction);
                 analyzeMenu.add(TokenFlowAction);
+                analyzeMenu.add(DynSoundAction);
 
 		helpMenu.add(aboutAction);
 	}
@@ -270,6 +273,7 @@ public class MainFrame extends JFrame implements WindowListener {
                 toolBar.add(tInvariant);
                 toolBar.add(ReachabilityAction);
                 toolBar.add(TokenFlowAction);
+                toolBar.add(DynSoundAction);
 
 		ButtonGroup selectToolButtonGroup = new ButtonGroup();
 		selectToolButtonGroup.add(selectSelectionToolToggleButton);
