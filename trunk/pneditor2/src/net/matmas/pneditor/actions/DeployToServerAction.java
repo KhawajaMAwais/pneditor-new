@@ -6,7 +6,7 @@ import net.matmas.pnapi.properties.WithProperties;
 import net.matmas.pneditor.MainFrame;
 import net.matmas.pneditor.PNEditor;
 import net.matmas.pneditor.Selection;
-import net.matmas.pneditor.properties.DeployToServerDialog;
+import net.matmas.pneditor.functions.DeployToServerDialog;
 import net.matmas.util.CollectionTools;
 import net.matmas.util.GraphicsTools;
 

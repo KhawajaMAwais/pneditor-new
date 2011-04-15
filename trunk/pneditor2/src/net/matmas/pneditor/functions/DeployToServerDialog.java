@@ -1,4 +1,4 @@
-package net.matmas.pneditor.properties;
+package net.matmas.pneditor.functions;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -14,6 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import net.matmas.pnapi.properties.WithProperties;
 import net.matmas.pnapi.xml.XmlDocument;
@@ -27,27 +28,39 @@ import org.simpleframework.xml.core.Persister;
  */
 public class DeployToServerDialog extends JDialog {
 
-    private static JLabel label = new JLabel("Server: ");
-    private static JTextField server = new JTextField();
-    private static JButton button = new JButton("Deploy");
+    private JTextField server = new JTextField();
+    private JTextField username = new JTextField();
+    private JTextField password = new JPasswordField();
+    private JButton button = new JButton("Deploy");
 
 
 	public DeployToServerDialog(JFrame parentFrame, WithProperties withProperties) {
 		super(parentFrame);
 		this.setTitle("Deploy to server");
 
-		this.setSize(300, 100);
+		this.setSize(320, 150);
 		this.setLocationRelativeTo(getParent());
-		this.getContentPane().setLayout(new FlowLayout(FlowLayout.LEFT));
-
+        this.getContentPane().setLayout(new FlowLayout(FlowLayout.RIGHT));
+        
         // form elements
-        this.add(label);
-        server.setPreferredSize(new Dimension(200, 25));
-        server.setText("http://");
+        this.add(new JLabel("Server: "));
+        server.setPreferredSize(new Dimension(240, 25));
+        server.setText("http://localhost:8080/WorkflowManagementSystem/UploadServlet");
         this.add(server);
+
+        this.add(new JLabel("User:"));
+        username.setPreferredSize(new Dimension(240, 25));
+        this.add(username);
+
+        this.add(new JLabel("Password:"));
+        password.setPreferredSize(new Dimension(240, 25));
+        this.add(password);
+
         this.add(button);
 
         this.setVisible(true);
+
+        final DeployToServerDialog dialog = this;
 
         // action
         button.addActionListener(new ActionListener() {
@@ -59,7 +72,7 @@ public class DeployToServerDialog extends JDialog {
                 
                 try {
                     // URL of server
-                    url = new URL (DeployToServerDialog.getServerValue());
+                    url = new URL (dialog.server.getText());
                     // URL connection channel.
                     urlConn = url.openConnection();
                     // Let the run-time system (RTS) know that we dont want input.
@@ -80,7 +93,7 @@ public class DeployToServerDialog extends JDialog {
 
                     // Send POST output.
                     printout = new DataOutputStream(urlConn.getOutputStream());
-                    printout.writeBytes ("xml="+URLEncoder.encode(xmlOutput.toString("UTF-8"), "UTF-8"));
+                    printout.writeBytes ("username="+dialog.username.getText()+"&password="+dialog.password.getText()+"&xml="+URLEncoder.encode(xmlOutput.toString("UTF-8"), "UTF-8"));
                     printout.flush ();
                     printout.close ();
 
@@ -106,17 +119,15 @@ public class DeployToServerDialog extends JDialog {
                 }
 
                 try {
-                    java.net.URI uri = new java.net.URI( DeployToServerDialog.getServerValue() );
+                    java.net.URI uri = new java.net.URI( dialog.server.getText() );
                     desktop.browse( uri );
                 }
                 catch ( Exception exp ) {
                     JOptionPane.showMessageDialog(rootPane, exp.getMessage());
                 }
+
+                dialog.setVisible(false);
             }
         });        
 	}
-
-    public static String getServerValue() {
-        return server.getText();
-    }
 }
