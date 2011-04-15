@@ -6,6 +6,10 @@
 package net.matmas.pneditor.actions;
 
 import java.awt.event.ActionEvent;
+import net.matmas.pnapi.PetriNet;
+import net.matmas.pnapi.Place;
+import net.matmas.pneditor.PNEditor;
+import net.matmas.pneditor.functions.reachability.MainWindow;
 import net.matmas.util.GraphicsTools;
 
 /**
@@ -22,7 +26,9 @@ public class ReachabilityAction extends Action {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-
+            PetriNet petriNet = PNEditor.getInstance().getDocument().getPetriNet();
+           // if(petriNet.getPlaces().get(0).getIsStartPlace())
+                new MainWindow();
 	}
 
 
