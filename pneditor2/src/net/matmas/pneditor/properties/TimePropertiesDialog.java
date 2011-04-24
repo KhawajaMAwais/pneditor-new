@@ -73,6 +73,7 @@ public class TimePropertiesDialog extends JFrame implements ActionListener {
                                 iterstart.setSelected(place.getIsIterationStart());
                                 Double text = place.getArrivalRate();
                                 arrivalrate.setText(text.toString());
+                                arrivalrate.setToolTipText("Number of cases pre hour");
                             }
                         }
                         title += " of place";
