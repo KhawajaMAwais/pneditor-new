@@ -16,6 +16,9 @@ public class XmlPlace extends XmlNode {
 	public int tokens;
 
         @Element
+	public Boolean isStatic;
+
+        @Element
 	public Boolean IsIterationStart;
 
         @Element
@@ -42,11 +45,12 @@ public class XmlPlace extends XmlNode {
 	public XmlPlace(Place place, Marking marking) {
 		super(place);
 		this.tokens = marking.getTokens(place);
-                IsIterationStart = place.getIsIterationStart();
-                IsORSplit = place.getIsORSplit();
-                IsStartPlace = place.getIsStartPlace();
-                IsEndPlace = place.getIsEndPlace();
-                ArrivalRate = place.getArrivalRate();
+                this.IsIterationStart = place.getIsIterationStart();
+                this.IsORSplit = place.getIsORSplit();
+                this.IsStartPlace = place.getIsStartPlace();
+                this.IsEndPlace = place.getIsEndPlace();
+                this.ArrivalRate = place.getArrivalRate();
+                this.isStatic = place.getProperties().containsPropertyWithId("static");
                 if (IsORSplit)
                 {
                     ORJoinId = place.getORJoin().getId();
