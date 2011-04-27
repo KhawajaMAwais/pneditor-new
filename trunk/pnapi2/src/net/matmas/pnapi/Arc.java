@@ -346,7 +346,8 @@ public class Arc extends Element implements Cloneable {
  // work flow
         private void drawProbabilityLabel(Graphics g, Point arrowTip, double probability) {
 		Point labelPoint = getLabelPoint(arrowTip);
-		GraphicsTools.drawString(g, Double.toString(probability), labelPoint, HorizontalAlignment.center, VerticalAlignment.top);
+                String str = "("+Double.toString(probability)+")";
+		GraphicsTools.drawString(g,str, labelPoint, HorizontalAlignment.center, VerticalAlignment.top);
 
 	}
 /////
