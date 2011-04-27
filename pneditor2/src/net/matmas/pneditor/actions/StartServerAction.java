@@ -26,8 +26,8 @@ public class StartServerAction extends Action {
 	public void actionPerformed(ActionEvent e) {
 
 
-            String win_cmd = "nazov";
-            String unix_cmd = "./nazov";
+            String win_cmd = "tomcat/bin/startup.bat";
+            String unix_cmd = "./tomcat/bin/startup.sh";
             String cmd = unix_cmd;
             if (System.getProperty("os.name").indexOf("Windows") >= 0)
                 cmd = win_cmd;
@@ -36,7 +36,7 @@ public class StartServerAction extends Action {
                 binaryProc = Runtime.getRuntime().exec(cmd);
 
             }catch (/*IOException*/Exception ee) {
-                JOptionPane.showMessageDialog(PNEditor.getInstance().getMainFrame(), "Unable tu run or finish binary subroutine!");
+                JOptionPane.showMessageDialog(PNEditor.getInstance().getMainFrame(), "Unable to run server!");
                 return;
             }
 
