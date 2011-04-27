@@ -36,6 +36,10 @@ echo This environment variable is needed to run this program
 goto end
 :okHome
 
+if not "%JRE_HOME%" == "" goto gotJRE
+set JRE_HOME="C:\Progra~1\Java\jre6"
+:gotJRE
+
 set EXECUTABLE=%CATALINA_HOME%\bin\catalina.bat
 
 rem Check that target executable exists
