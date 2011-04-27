@@ -25,7 +25,7 @@ public class StopServerAction extends Action {
 
 	public void actionPerformed(ActionEvent e) {
 
-             String win_cmd = "tomcat/bin/shutdown.bat";
+            String win_cmd = "cmd start /c \"cd tomcat/bin & shutdown.bat\"";
             String unix_cmd = "./tomcat/bin/shutdown.sh";
             String cmd = unix_cmd;
             if (System.getProperty("os.name").indexOf("Windows") >= 0)
