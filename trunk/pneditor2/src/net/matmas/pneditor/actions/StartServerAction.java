@@ -6,6 +6,8 @@
 package net.matmas.pneditor.actions;
 
 import java.awt.event.ActionEvent;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import javax.swing.JOptionPane;
 import net.matmas.pneditor.PNEditor;
 import net.matmas.util.GraphicsTools;
@@ -26,7 +28,7 @@ public class StartServerAction extends Action {
 	public void actionPerformed(ActionEvent e) {
 
 
-            String win_cmd = "tomcat/bin/startup.bat";
+            String win_cmd = "cmd start /c \"cd tomcat/bin & startup.bat\"";
             String unix_cmd = "./tomcat/bin/startup.sh";
             String cmd = unix_cmd;
             if (System.getProperty("os.name").indexOf("Windows") >= 0)
