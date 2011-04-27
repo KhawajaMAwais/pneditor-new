@@ -1,10 +1,14 @@
 <document>
    <place id="p1">
-      <x>359</x>
-      <y>227</y>
+      <x>342</x>
+      <y>138</y>
       <labelX>0</labelX>
       <labelY>23</labelY>
-      <properties/>
+      <properties>
+         <property class="net.matmas.pnapi.properties.BooleanProperty" id="static" idEditable="false">
+            <selected>true</selected>
+         </property>
+      </properties>
       <tokens>0</tokens>
       <IsIterationStart>false</IsIterationStart>
       <IsORSplit>false</IsORSplit>
@@ -15,8 +19,8 @@
       <IterJoinId>null</IterJoinId>
    </place>
    <place id="p2">
-      <x>512</x>
-      <y>225</y>
+      <x>521</x>
+      <y>126</y>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -30,8 +34,8 @@
       <IterJoinId>null</IterJoinId>
    </place>
    <place id="p3">
-      <x>659</x>
-      <y>226</y>
+      <x>695</x>
+      <y>122</y>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -45,8 +49,8 @@
       <IterJoinId>null</IterJoinId>
    </place>
    <transition id="t1">
-      <x>459</x>
-      <y>188</y>
+      <x>443</x>
+      <y>151</y>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -58,8 +62,8 @@
       <ANDJoinId>null</ANDJoinId>
    </transition>
    <transition id="t2">
-      <x>603</x>
-      <y>181</y>
+      <x>643</x>
+      <y>185</y>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -106,7 +110,7 @@
       <breakPoints/>
       <properties/>
    </arc>
-   <left>344</left>
-   <top>166</top>
+   <left>327</left>
+   <top>107</top>
    <properties/>
 </document>
