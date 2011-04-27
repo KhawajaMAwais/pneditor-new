@@ -1,0 +1,168 @@
+Nov 8, 2010 5:44:27 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files (x86)\Java\jdk1.6.0_20\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Broadcom\Broadcom 802.11\Driver;C:\Program Files (x86)\QT Lite\QTSystem;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;
+Nov 8, 2010 5:44:28 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Nov 8, 2010 5:44:28 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1327 ms
+Nov 8, 2010 5:44:28 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Nov 8, 2010 5:44:28 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.20
+Nov 8, 2010 5:44:29 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive WorkflowManagementSystem2.war
+Nov 8, 2010 5:44:31 PM org.apache.catalina.session.StandardManager doLoad
+SEVERE: IOException while loading persisted sessions: java.io.WriteAbortedException: writing aborted; java.io.NotSerializableException: hibernate.models.Cases
+java.io.WriteAbortedException: writing aborted; java.io.NotSerializableException: hibernate.models.Cases
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1333)
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:1947)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1871)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1753)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1329)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:351)
+	at org.apache.catalina.session.StandardSession.readObject(StandardSession.java:1441)
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:942)
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:394)
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:321)
+	at org.apache.catalina.session.StandardManager.start(StandardManager.java:637)
+	at org.apache.catalina.core.ContainerBase.setManager(ContainerBase.java:438)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4358)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployWAR(HostConfig.java:850)
+	at org.apache.catalina.startup.HostConfig.deployWARs(HostConfig.java:724)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:493)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1206)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:314)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:583)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:288)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:413)
+Caused by: java.io.NotSerializableException: hibernate.models.Cases
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1156)
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1509)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1474)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1392)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1150)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:326)
+	at org.apache.catalina.session.StandardSession.writeObject(StandardSession.java:1517)
+	at org.apache.catalina.session.StandardSession.writeObjectData(StandardSession.java:959)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:517)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:463)
+	at org.apache.catalina.session.StandardManager.stop(StandardManager.java:667)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4573)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:924)
+	at org.apache.catalina.startup.HostConfig.undeployApps(HostConfig.java:1248)
+	at org.apache.catalina.startup.HostConfig.stop(HostConfig.java:1219)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:316)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1086)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.StandardEngine.stop(StandardEngine.java:448)
+	at org.apache.catalina.core.StandardService.stop(StandardService.java:584)
+	at org.apache.catalina.core.StandardServer.stop(StandardServer.java:744)
+	at org.apache.catalina.startup.Catalina.stop(Catalina.java:633)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:608)
+	... 6 more
+Nov 8, 2010 5:44:31 PM org.apache.catalina.session.StandardManager start
+SEVERE: Exception loading sessions from persistent storage
+java.io.WriteAbortedException: writing aborted; java.io.NotSerializableException: hibernate.models.Cases
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1333)
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:1947)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1871)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1753)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1329)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:351)
+	at org.apache.catalina.session.StandardSession.readObject(StandardSession.java:1441)
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:942)
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:394)
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:321)
+	at org.apache.catalina.session.StandardManager.start(StandardManager.java:637)
+	at org.apache.catalina.core.ContainerBase.setManager(ContainerBase.java:438)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4358)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployWAR(HostConfig.java:850)
+	at org.apache.catalina.startup.HostConfig.deployWARs(HostConfig.java:724)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:493)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1206)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:314)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:583)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:288)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:413)
+Caused by: java.io.NotSerializableException: hibernate.models.Cases
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1156)
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1509)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1474)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1392)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1150)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:326)
+	at org.apache.catalina.session.StandardSession.writeObject(StandardSession.java:1517)
+	at org.apache.catalina.session.StandardSession.writeObjectData(StandardSession.java:959)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:517)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:463)
+	at org.apache.catalina.session.StandardManager.stop(StandardManager.java:667)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4573)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:924)
+	at org.apache.catalina.startup.HostConfig.undeployApps(HostConfig.java:1248)
+	at org.apache.catalina.startup.HostConfig.stop(HostConfig.java:1219)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:316)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1086)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.StandardEngine.stop(StandardEngine.java:448)
+	at org.apache.catalina.core.StandardService.stop(StandardService.java:584)
+	at org.apache.catalina.core.StandardServer.stop(StandardServer.java:744)
+	at org.apache.catalina.startup.Catalina.stop(Catalina.java:633)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:608)
+	... 6 more
+Nov 8, 2010 5:44:32 PM com.sun.faces.config.ConfigureListener contextInitialized
+INFO: Initializing Mojarra 2.0.2 (FCS b10) for context '/WorkflowManagementSystem2'
+Nov 8, 2010 5:44:36 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.aliasbean.AliasBeanTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Nov 8, 2010 5:44:36 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.aliasbean.AliasBeansScopeTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Nov 8, 2010 5:44:36 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.schedule.ScheduleTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Nov 8, 2010 5:44:36 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.tabbedpane.HtmlPanelTabbedPaneTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Nov 8, 2010 5:44:36 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.tree.taglib.TreeTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Nov 8, 2010 5:44:36 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Nov 8, 2010 5:44:36 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Nov 8, 2010 5:44:36 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Nov 8, 2010 5:44:36 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Nov 8, 2010 5:44:36 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Nov 8, 2010 5:44:37 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Nov 8, 2010 5:44:37 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/47  config=null
+Nov 8, 2010 5:44:37 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 9095 ms

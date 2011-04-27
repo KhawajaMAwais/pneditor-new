@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head><title>Edit roles</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<div id="editRolesPage" class="page">
+<h2>Edit roles - Workflow #{sessionBean.actualWorkflow.id}</h2>
+	<div id="menuPanel">
+		<h:form>
+		<img src="images/roles.png" class="mainImg" />
+		<p>
+			<a href="workflows.jsf"><img src="./images/back.png" class="smallImg" alt="Back" /></a>
+			<h:commandButton action="cases.jsf" value="Show cases" 
+				image="./images/case.png" class="smallImg" alt="Show cases" />
+		</p>
+		</h:form>
+	</div>
+	<div id="editRolesForm">
+	<h:form>
+	<div class="createDestroy">
+	<p>CreateCase 
+		<h:selectBooleanCheckbox id="createCase" value="#{roleManagementBean.actualRole.createCase}"
+		valueChangeListener="#{roleManagementBean.roleUpdated}">
+			<f:ajax event="change" execute="@this" render="createCase" />
+		</h:selectBooleanCheckbox>
+	</p>
+	<p>Destroy Case 
+		<h:selectBooleanCheckbox id="destroyCase" value="#{roleManagementBean.actualRole.destroyCase}"
+		valueChangeListener="#{roleManagementBean.roleUpdated}">
+			<f:ajax event="change" execute="@this" render="destroyCase"/>
+		</h:selectBooleanCheckbox>
+	</p>
+	</div>
+
+	<div class="roles">
+	Roles <br />
+	<h:selectOneListbox id="roleOneListBox" value="#{roleManagementBean.actualRoleItem}"
+		size="6" valueChangeListener="#{roleManagementBean.roleChanged}">
+		<f:selectItems value="#{roleManagementBean.roleItemList}" />
+		<f:ajax event="click" execute="@this" render="loginManyListBox createCase destroyCase"/>
+	</h:selectOneListbox>
+	
+	</div>
+	
+	<div class="logins">
+	Logins
+	<h:selectManyCheckbox id="loginManyListBox" value="#{roleManagementBean.selLoginArray}"
+		size="6" valueChangeListener="#{roleManagementBean.loginChanged}" layout="pageDirection">
+		<f:selectItems value="#{roleManagementBean.loginItemList}" />
+		<f:ajax event="change" execute="@this" render="loginManyListBox" />
+	</h:selectManyCheckbox>
+	</div>
+	
+	</h:form>
+	</div>
+</div>
+</h:body>
+</html>

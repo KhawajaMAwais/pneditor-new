@@ -1,0 +1,179 @@
+body {
+	background-color: #eef;
+	font-size: 16px;
+}
+
+img {
+	border: none;
+}
+
+.page {
+	float: left;
+	display: block;
+	padding: 10px;
+	border: 1px solid #bbb;
+	background-color: #fff;
+}
+
+.fLeft {
+	float: left;
+	display: block;
+	clear: both;
+}
+
+#menuPanel {
+	float:left;
+	display: block;
+	padding-right: 10px;
+	width: 128px;
+	border-right: 1px solid #bbb;
+	text-align: center;
+}
+
+#menuPanel .mainImg {
+	width: 128px;
+	height: 128px;
+	
+}
+
+#menuPanel .smallImg {
+	width: 32px;
+	height: 32px;
+	padding: 3px;
+}
+
+#loginPage {
+	width: 430px;
+}
+
+#register_link {
+	font-size: 16px;
+	text-decoration: none;
+	color: #024c94;
+	padding-left: 18px;
+	background: url('../images/add_icon.png') no-repeat center left;
+}
+
+#loginForm {
+	float:left;
+	display: block;
+	width: 260px;
+	padding-left: 10px;
+	font-size: 18px;
+	text-align: center;
+	margin-top: 30px;
+}
+
+#registerPage {
+	width: 520px;
+}
+
+#registerForm {
+	float: left;
+	display: block;
+	width: 360px;
+	padding-left: 10px;
+	margin-top: 20px;
+	font-size: 18px;
+	text-align: center;
+}
+
+#loginForm input, #registerForm input {
+	font-size: 16px;
+}
+
+#workflowPage {
+	width: 600px;
+}
+
+#workflowForm {
+	float: left;
+	display: block;
+	width: 420px;
+	padding-left: 10px;
+	font-size: 18px;
+	text-align: center;
+}
+
+.pageTable table {
+	border-color: #777;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    text-align: center;
+}
+
+.pageTable table tr td,
+.pageTable table tr th {
+	padding: 2px 2px;
+	border-color: #777;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+}
+
+#uploadPage {
+	width: 440px;
+}
+
+#uploadForm {
+	float: left;
+	display: block;
+	width: 284px;
+	padding-left: 10px;
+	font-size: 18px;
+	text-align: center;
+}
+
+#editRolesPage {
+	width: 500px;
+}
+
+#editRolesForm {
+	float: left;
+	display: block;
+	width: 340px;
+	padding-left: 10px;
+	text-align: center;
+}
+
+.createDestroy {
+	float: left;
+	display: block;
+	width: 120px;
+	clear: both;
+}
+
+.roles {
+	float: left;
+	display: block;
+	width: 100px;
+}
+
+.logins {
+	float: left;
+	display: block;
+	width: 80px;
+}
+
+#casesPage {
+	width: 730px;
+}
+
+#casesForm {
+	float: left;
+	display: block;
+	width: 570px;
+	padding-left: 10px;
+}
+
+#transitionsPage {
+	width: 730px;
+}
+
+#transitionsForm {
+	float: left;
+	display: block;
+	width: 570px;
+	padding-left: 10px;
+}
+
+	
