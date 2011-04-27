@@ -1,0 +1,440 @@
+Jun 24, 2010 1:45:04 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files (x86)\Java\jdk1.6.0_20\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Broadcom\Broadcom 802.11\Driver;C:\Program Files (x86)\QT Lite\QTSystem;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;
+Jun 24, 2010 1:45:05 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Jun 24, 2010 1:45:05 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1289 ms
+Jun 24, 2010 1:45:05 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Jun 24, 2010 1:45:05 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.20
+Jun 24, 2010 1:45:06 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive WorkflowManagementSystem2.war
+Jun 24, 2010 1:45:09 PM com.sun.faces.config.ConfigureListener contextInitialized
+INFO: Initializing Mojarra 2.0.2 (FCS b10) for context '/WorkflowManagementSystem2'
+Jun 24, 2010 1:45:13 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.aliasbean.AliasBeanTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Jun 24, 2010 1:45:13 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.aliasbean.AliasBeansScopeTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Jun 24, 2010 1:45:13 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.schedule.ScheduleTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Jun 24, 2010 1:45:13 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.tabbedpane.HtmlPanelTabbedPaneTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Jun 24, 2010 1:45:13 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.tree.taglib.TreeTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Jun 24, 2010 1:45:13 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Jun 24, 2010 1:45:13 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Jun 24, 2010 1:45:13 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Jun 24, 2010 1:45:13 PM com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+Jun 24, 2010 1:45:14 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Jun 24, 2010 1:45:14 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Jun 24, 2010 1:45:14 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/32  config=null
+Jun 24, 2010 1:45:14 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 9058 ms
+Jun 24, 2010 1:47:14 PM com.sun.faces.application.ActionListenerImpl processAction
+SEVERE: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+javax.faces.el.EvaluationException: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:102)
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:102)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:315)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:775)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1267)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:82)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:312)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.myfaces.webapp.filter.ExtensionsFilter.doFilter(ExtensionsFilter.java:341)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:97)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:52)
+	at org.hibernate.jdbc.ConnectionManager.openConnection(ConnectionManager.java:449)
+	at org.hibernate.jdbc.ConnectionManager.getConnection(ConnectionManager.java:167)
+	at org.hibernate.jdbc.JDBCContext.connection(JDBCContext.java:142)
+	at org.hibernate.transaction.JDBCTransaction.begin(JDBCTransaction.java:85)
+	at org.hibernate.impl.SessionImpl.beginTransaction(SessionImpl.java:1353)
+	at hibernate.util.HibernateUtil.beginTransaction(HibernateUtil.java:43)
+	at hibernate.dao.LoginDao.find(LoginDao.java:20)
+	at core.managedBeans.SessionBean.validate(SessionBean.java:46)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.el.parser.AstValue.invoke(AstValue.java:172)
+	at org.apache.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:276)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:98)
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:88)
+	... 23 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2214)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:781)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:46)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:352)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:284)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:154)
+	at org.hibernate.connection.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:133)
+	at org.hibernate.jdbc.ConnectionManager.openConnection(ConnectionManager.java:446)
+	... 38 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2137)
+	... 51 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:218)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:253)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 52 more
+Jun 24, 2010 1:47:14 PM com.sun.faces.application.ActionListenerImpl processAction
+SEVERE: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+javax.faces.el.EvaluationException: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:102)
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:102)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:315)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:775)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1267)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:82)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:312)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.myfaces.webapp.filter.ExtensionsFilter.doFilter(ExtensionsFilter.java:341)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:97)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:52)
+	at org.hibernate.jdbc.ConnectionManager.openConnection(ConnectionManager.java:449)
+	at org.hibernate.jdbc.ConnectionManager.getConnection(ConnectionManager.java:167)
+	at org.hibernate.jdbc.JDBCContext.connection(JDBCContext.java:142)
+	at org.hibernate.transaction.JDBCTransaction.begin(JDBCTransaction.java:85)
+	at org.hibernate.impl.SessionImpl.beginTransaction(SessionImpl.java:1353)
+	at hibernate.util.HibernateUtil.beginTransaction(HibernateUtil.java:43)
+	at hibernate.dao.LoginDao.find(LoginDao.java:20)
+	at core.managedBeans.SessionBean.validate(SessionBean.java:46)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.el.parser.AstValue.invoke(AstValue.java:172)
+	at org.apache.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:276)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:98)
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:88)
+	... 23 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2214)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:781)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:46)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:352)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:284)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:154)
+	at org.hibernate.connection.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:133)
+	at org.hibernate.jdbc.ConnectionManager.openConnection(ConnectionManager.java:446)
+	... 38 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2137)
+	... 51 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:218)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:253)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 52 more
+Jun 24, 2010 1:47:14 PM com.sun.faces.lifecycle.InvokeApplicationPhase execute
+WARNING: #{sessionBean.validate}: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+javax.faces.FacesException: #{sessionBean.validate}: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:118)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:315)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:775)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1267)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:82)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:312)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.myfaces.webapp.filter.ExtensionsFilter.doFilter(ExtensionsFilter.java:341)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: javax.faces.el.EvaluationException: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:102)
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:102)
+	... 22 more
+Caused by: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:97)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:52)
+	at org.hibernate.jdbc.ConnectionManager.openConnection(ConnectionManager.java:449)
+	at org.hibernate.jdbc.ConnectionManager.getConnection(ConnectionManager.java:167)
+	at org.hibernate.jdbc.JDBCContext.connection(JDBCContext.java:142)
+	at org.hibernate.transaction.JDBCTransaction.begin(JDBCTransaction.java:85)
+	at org.hibernate.impl.SessionImpl.beginTransaction(SessionImpl.java:1353)
+	at hibernate.util.HibernateUtil.beginTransaction(HibernateUtil.java:43)
+	at hibernate.dao.LoginDao.find(LoginDao.java:20)
+	at core.managedBeans.SessionBean.validate(SessionBean.java:46)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.el.parser.AstValue.invoke(AstValue.java:172)
+	at org.apache.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:276)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:98)
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:88)
+	... 23 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2214)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:781)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:46)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:352)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:284)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:154)
+	at org.hibernate.connection.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:133)
+	at org.hibernate.jdbc.ConnectionManager.openConnection(ConnectionManager.java:446)
+	... 38 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2137)
+	... 51 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:218)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:253)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 52 more
+Jun 24, 2010 1:47:14 PM com.sun.faces.lifecycle.InvokeApplicationPhase execute
+WARNING: #{sessionBean.validate}: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+javax.faces.FacesException: #{sessionBean.validate}: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:118)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:315)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:775)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1267)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:82)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:312)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.myfaces.webapp.filter.ExtensionsFilter.doFilter(ExtensionsFilter.java:341)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: javax.faces.el.EvaluationException: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:102)
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:102)
+	... 22 more
+Caused by: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:97)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:52)
+	at org.hibernate.jdbc.ConnectionManager.openConnection(ConnectionManager.java:449)
+	at org.hibernate.jdbc.ConnectionManager.getConnection(ConnectionManager.java:167)
+	at org.hibernate.jdbc.JDBCContext.connection(JDBCContext.java:142)
+	at org.hibernate.transaction.JDBCTransaction.begin(JDBCTransaction.java:85)
+	at org.hibernate.impl.SessionImpl.beginTransaction(SessionImpl.java:1353)
+	at hibernate.util.HibernateUtil.beginTransaction(HibernateUtil.java:43)
+	at hibernate.dao.LoginDao.find(LoginDao.java:20)
+	at core.managedBeans.SessionBean.validate(SessionBean.java:46)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.el.parser.AstValue.invoke(AstValue.java:172)
+	at org.apache.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:276)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:98)
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:88)
+	... 23 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2214)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:781)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:46)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:352)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:284)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:154)
+	at org.hibernate.connection.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:133)
+	at org.hibernate.jdbc.ConnectionManager.openConnection(ConnectionManager.java:446)
+	... 38 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2137)
+	... 51 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:218)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:253)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 52 more
+Jun 24, 2010 1:56:28 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Jun 24, 2010 1:56:29 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Jun 24, 2010 1:56:30 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080

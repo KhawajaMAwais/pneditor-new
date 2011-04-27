@@ -1,0 +1,58 @@
+10.5.2010 20:44:38 org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files (x86)\Java\jdk1.6.0_17\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Broadcom\Broadcom 802.11\Driver;C:\Program Files (x86)\QT Lite\QTSystem;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static
+10.5.2010 20:44:39 org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+10.5.2010 20:44:39 org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 2382 ms
+10.5.2010 20:44:39 org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+10.5.2010 20:44:39 org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.20
+10.5.2010 20:44:42 org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+10.5.2010 20:44:42 org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+10.5.2010 20:44:42 org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/72  config=null
+10.5.2010 20:44:42 org.apache.catalina.startup.Catalina start
+INFO: Server startup in 3510 ms
+10.5.2010 20:46:27 org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files (x86)\Java\jdk1.6.0_17\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Broadcom\Broadcom 802.11\Driver;C:\Program Files (x86)\QT Lite\QTSystem;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static
+10.5.2010 20:46:27 org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+10.5.2010 20:46:27 org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 383 ms
+10.5.2010 20:46:27 org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+10.5.2010 20:46:27 org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.20
+10.5.2010 20:46:27 org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive WorkflowManagementSystem2.war
+10.5.2010 20:46:29 com.sun.faces.config.ConfigureListener contextInitialized
+INFO: Initializing Mojarra 2.0.2 (FCS b10) for context '/WorkflowManagementSystem2'
+10.5.2010 20:46:32 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.aliasbean.AliasBeanTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+10.5.2010 20:46:32 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.aliasbean.AliasBeansScopeTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+10.5.2010 20:46:32 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.schedule.ScheduleTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+10.5.2010 20:46:32 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.tabbedpane.HtmlPanelTabbedPaneTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+10.5.2010 20:46:32 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.tree.taglib.TreeTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+10.5.2010 20:46:32 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+10.5.2010 20:46:32 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+10.5.2010 20:46:32 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+10.5.2010 20:46:32 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+10.5.2010 20:46:32 org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+10.5.2010 20:46:32 org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+10.5.2010 20:46:32 org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/24  config=null
+10.5.2010 20:46:32 org.apache.catalina.startup.Catalina start
+INFO: Server startup in 5331 ms

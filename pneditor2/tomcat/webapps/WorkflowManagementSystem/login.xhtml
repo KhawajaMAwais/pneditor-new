@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:mj="http://mojarra.dev.java.net/mojarra_ext">
+<h:head>
+	<title>Login</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+<div class="page" id="loginPage">
+	<div id="menuPanel">
+		<img src="images/login.png" class="mainImg" />
+		<p><a href="register.jsf" id="register_link">
+		 Register
+		</a></p>
+	</div>
+	<div id="loginForm">
+		<h:form id="form">
+			<h:panelGrid columns="2" id="loginGrid">
+				<h:outputText value="Username:" />
+				<h:inputText id="loginField" value="#{loginBean.username}" maxlength="20" />
+				<h:outputText value="Password:" />
+				<h:inputSecret id="pwField" value="#{loginBean.password}" maxlength="30" />
+			</h:panelGrid>
+			<h:commandButton id="submitButton" value="Login" action="#{loginBean.validate}" />
+			<mj:focus for="form:loginField" />
+		</h:form>
+	</div>
+</div>
+</h:body>
+</html>

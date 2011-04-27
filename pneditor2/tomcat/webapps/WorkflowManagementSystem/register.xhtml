@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:mj="http://mojarra.dev.java.net/mojarra_ext">
+<h:head>
+	<title>Registration</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<div class="page" id="registerPage">
+	<div id="menuPanel">
+		<img src="images/register.png" class="mainImg" />
+		<p><a href="login.jsf">
+			<img alt="Back to Login" class="smallImg" src="./images/back.png" />
+		</a></p>
+	</div>
+	<div id="registerForm">
+	<h:form id="form">
+		<h:panelGrid columns="2">
+			<h:outputText value="Username:" />
+			<h:inputText id="loginField" size="24" value="#{registerBean.username}" maxlength="20" />
+			<h:outputText value="Password:"></h:outputText>
+			<h:inputSecret size="24" value="#{registerBean.password}" maxlength="30" />
+			<h:outputText value="Confirm Password:"></h:outputText>
+			<h:inputSecret size="24" value="#{registerBean.password2}" maxlength="30" />
+		</h:panelGrid>
+		<p>
+			<h:outputText value="Login already exists" rendered="#{registerBean.unameExists}"
+				style="color:red;font-weight:bold" />
+		</p>
+		<h:commandButton value="Register" action="#{registerBean.register}" />
+		<mj:focus for="form:loginField" />
+	</h:form>
+	</div>
+</div>
+</h:body>
+</html>

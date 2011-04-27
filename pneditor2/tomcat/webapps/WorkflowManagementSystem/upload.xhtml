@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+<h:head>
+	<title>Upload new workflow</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+</h:head>
+
+<h:body>
+<div class="page" id="uploadPage">
+<h2>Upload Workflow</h2>
+	<div id="menuPanel">
+		<h:form>
+		<img src="images/upload.png" class="mainImg" />
+		<p>
+			<a href="workflows.jsf"><img src="./images/back.png" class="smallImg" alt="Back" /></a>
+		</p>
+		</h:form>
+	</div>
+	
+	<div id="uploadForm">
+	<h:form enctype="multipart/form-data">
+		<p>PetriNet <br />
+			<t:inputFileUpload id="fileupload" value="#{fileUploadBean.uploadFiles[0]}"
+				size="30" />
+		</p>
+		<p>DataModel <br />
+			<t:inputFileUpload id="datamodelupload" value="#{fileUploadBean.uploadFiles[1]}"
+				size="30" />
+		</p>
+		<p>Form <br />
+			<t:inputFileUpload id="formupload" value="#{fileUploadBean.uploadFiles[2]}"
+				size="30" />
+		</p>
+		<p>
+			<h:commandButton value="Upload file" action="#{fileUploadBean.upload}" />
+			<h:outputText value="Uploaded successfully."
+				rendered="#{fileUploadBean.rendSuccess}"
+				style="color:green;font-weight:bold" />
+			<h:outputText value="Error in uploading!"
+				rendered="#{fileUploadBean.rendFailure}"
+				style="color:red;font-weight:bold" />
+		</p>
+	</h:form>
+	</div>
+</div>
+</h:body>
+</html>

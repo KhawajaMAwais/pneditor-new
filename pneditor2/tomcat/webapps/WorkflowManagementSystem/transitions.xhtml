@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Transitions</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<div class="page pageTable" id="transitionsPage">
+<h2>#{sessionBean.actualWorkflow.name} - 
+	Case&nbsp;#{sessionBean.actualInstance.id}</h2>
+	<div id="menuPanel">
+		<h:form>
+		<img src="images/transitions.png" class="mainImg" />
+		<p>
+			<a href="cases.jsf"><img src="./images/back.png" class="smallImg" alt="Back" /></a>
+		</p>
+		</h:form>
+	</div>
+	
+	<div id="transitionsForm">
+	<h:form>
+	<h:dataTable id="transitionListTable" cellspacing="0"
+		value="#{transitionBean.transitionList}" var="transition">
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Id"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{transition.id}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Name"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{transition.label}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Activate"></h:outputText>
+			</f:facet>
+			<h:commandButton action="#{transitionBean.activateTransition}" value="Activate"></h:commandButton>
+		</h:column>
+	</h:dataTable>
+	</h:form>
+	
+	<h:graphicImage id="pnImage" 
+		   alt="#{transitionBean.imgName}" width="556"
+		   url="#{transitionBean.imgName}">
+		</h:graphicImage>
+	</div>
+</div>
+</h:body>
+</html>

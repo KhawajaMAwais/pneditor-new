@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <listener>
+    <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>com.sun.faces.application.WebappLifecycleListener</listener-class>
+  </listener>
+  
+  <!-- Filters -->
+  
+  <filter>
+    <filter-name>extensionsFilter</filter-name>
+    <filter-class>org.apache.myfaces.webapp.filter.ExtensionsFilter</filter-class>
+    <init-param>
+      <description>Set the size limit for uploaded files.
+                       Format: 10 - 10 bytes
+                      10k - 10 KB
+                      10m - 10 MB
+                      1g - 1 GB
+                </description>
+      <param-name>uploadMaxFileSize</param-name>
+      <param-value>10m</param-value>
+    </init-param>
+    <init-param>
+      <description>Set the threshold size - files below this limit are stored
+			     in memory, files above this limit are stored on disk.
+                         Format: 10 - 10 bytes
+                         10k - 10 KB
+                         10m - 10 MB
+                         1g - 1 GB
+                 </description>
+      <param-name>uploadThresholdSize</param-name>
+      <param-value>5m</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>extensionsFilter</filter-name>
+    <url-pattern>/upload.jsf</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>sk.security.filters.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/cases.jsf</url-pattern>
+    <url-pattern>/editRoles.jsf</url-pattern>
+    <url-pattern>/transitions.jsf</url-pattern>
+    <url-pattern>/upload.jsf</url-pattern>
+    <url-pattern>/workflows.jsf</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+  
+  <!-- My servlets -->
+  
+  <servlet>
+    <description></description>
+    <display-name>ImageServlet</display-name>
+    <servlet-name>ImageServlet</servlet-name>
+    <servlet-class>sk.core.util.ImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ImageServlet</servlet-name>
+    <url-pattern>/ImageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UploadServlet</display-name>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>sk.core.util.UploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/UploadServlet</url-pattern>
+  </servlet-mapping>
+</web-app>

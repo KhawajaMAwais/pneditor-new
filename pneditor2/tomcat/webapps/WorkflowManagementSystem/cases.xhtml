@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head><title>Cases</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<div class="page pageTable" id="casesPage">
+<h2>Workflow #{sessionBean.actualWorkflow.id} - #{sessionBean.actualWorkflow.name}</h2>
+	<div id="menuPanel">
+		<h:form>
+		<img src="images/case.png" class="mainImg" />
+		<p>
+			<a href="workflows.jsf"><img src="./images/back.png" class="smallImg" alt="Back" /></a>
+			<h:commandButton action="editRoles.jsf}" value="Show cases" 
+				image="./images/roles.png" class="smallImg" alt="Edit roles" 
+				rendered="#{(workflow.owner == sessionBean.login.id) or (sessionBean.login.id == 1)}"/>
+		</p>
+		</h:form>
+	</div>
+	
+	<div id="casesForm">
+	<h:form>
+	<h:dataTable id="caseListTable" cellspacing="0"
+		value="#{instanceBean.instanceList}" var="instance">
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Id"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{instance.id}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Created"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{instance.creationTime}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Details"></h:outputText>
+			</f:facet>
+			<h:commandButton action="#{instanceBean.show}" value="Show"></h:commandButton>
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Delete"></h:outputText>
+			</f:facet>
+			<h:commandButton action="#{instanceBean.delete}" value="Delete" disabled="#{not instanceBean.destroy}"></h:commandButton>
+		</h:column>
+	</h:dataTable>
+	<h:commandButton action="#{instanceBean.create}" value="+Add Case" disabled="#{not instanceBean.create}"></h:commandButton>
+	</h:form>
+
+	<p><a href="#{instanceBean.imgUrl}">
+		<h:graphicImage id="wfImage" width="556"
+		   url="#{instanceBean.imgUrl}">
+		</h:graphicImage>
+	</a></p>
+	</div>
+</div>
+</h:body>
+</html>
