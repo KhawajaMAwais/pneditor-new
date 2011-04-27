@@ -49,6 +49,9 @@ import net.matmas.pneditor.actions.SelectTransitionToolAction;
 import net.matmas.pneditor.actions.SetArcMultiplicityAction;
 import net.matmas.pneditor.actions.SetLabelAction;
 import net.matmas.pneditor.actions.SetTokensAction;
+import net.matmas.pneditor.actions.SignAction;
+import net.matmas.pneditor.actions.StartServerAction;
+import net.matmas.pneditor.actions.StopServerAction;
 import net.matmas.pneditor.actions.TInvariantAction;
 import net.matmas.pneditor.actions.TokenFlowAction;
 import net.matmas.pneditor.actions.UndoAction;
@@ -116,6 +119,9 @@ public class MainFrame extends JFrame implements WindowListener {
         private Action ReachabilityAction = new ReachabilityAction();
         private Action TokenFlowAction = new TokenFlowAction();
         private Action DynSoundAction = new DynSoundAction();
+        private Action SignAction = new SignAction();
+        private Action StartServerAction = new StartServerAction();
+        private Action StopServerAction = new StopServerAction();
 	private Action quitAction = new QuitAction();
 	
 	public Action undoAction = new UndoAction();
@@ -225,6 +231,9 @@ public class MainFrame extends JFrame implements WindowListener {
                 analyzeMenu.add(ReachabilityAction);
                 analyzeMenu.add(TokenFlowAction);
                 analyzeMenu.add(DynSoundAction);
+                analyzeMenu.add(SignAction);
+                analyzeMenu.add(StartServerAction);
+                analyzeMenu.add(StopServerAction);
 
 		helpMenu.add(aboutAction);
 	}
@@ -274,6 +283,11 @@ public class MainFrame extends JFrame implements WindowListener {
                 toolBar.add(ReachabilityAction);
                 toolBar.add(TokenFlowAction);
                 toolBar.add(DynSoundAction);
+
+                toolBar.addSeparator();
+                toolBar.add(SignAction);
+                toolBar.add(StartServerAction);
+                toolBar.add(StopServerAction);
 
 		ButtonGroup selectToolButtonGroup = new ButtonGroup();
 		selectToolButtonGroup.add(selectSelectionToolToggleButton);
