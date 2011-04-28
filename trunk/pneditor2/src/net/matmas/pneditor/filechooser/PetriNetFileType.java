@@ -22,7 +22,7 @@ public class PetriNetFileType extends FileType {
 	
 	@Override
 	public String getExtension() {
-		return "pflow";
+		return "pflow2";
 	}
 
 	@Override

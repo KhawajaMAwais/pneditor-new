@@ -29,6 +29,7 @@ import net.matmas.pneditor.actions.DataModelAction;
 import net.matmas.pneditor.actions.DeleteAction;
 import net.matmas.pneditor.actions.DeployToServerAction;
 import net.matmas.pneditor.actions.DynSoundAction;
+import net.matmas.pneditor.actions.ImportOldPflowAction;
 import net.matmas.pneditor.actions.NewFileAction;
 import net.matmas.pneditor.actions.OpenFileAction;
 import net.matmas.pneditor.actions.OpenPropertiesAction;
@@ -120,6 +121,7 @@ public class MainFrame extends JFrame implements WindowListener {
         private Action SignAction = new SignAction();
         private Action StartServerAction = new StartServerAction();
         private Action StopServerAction = new StopServerAction();
+        private Action ImporOldPflowAction = new ImportOldPflowAction();
 	private Action quitAction = new QuitAction();
 	
 	public Action undoAction = new UndoAction();
@@ -196,7 +198,7 @@ public class MainFrame extends JFrame implements WindowListener {
 		fileMenu.add(openFileAction);
 		fileMenu.add(saveFileAction);
 		fileMenu.add(saveFileAsAction);
-                fileMenu.add(deployToServerAction);
+                fileMenu.add(ImporOldPflowAction);
 		fileMenu.add(quitAction);
 
 		editMenu.add(undoAction);
@@ -251,6 +253,7 @@ public class MainFrame extends JFrame implements WindowListener {
 		toolBar.add(openFileAction);
 		toolBar.add(saveFileAction);
 		toolBar.add(saveFileAsAction);
+                toolBar.add(ImporOldPflowAction);
 		toolBar.addSeparator();
 
 		toolBar.add(cutAction);

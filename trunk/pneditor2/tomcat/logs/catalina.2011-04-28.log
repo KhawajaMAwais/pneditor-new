@@ -1,0 +1,118 @@
+28.4.2011 13:21:56 org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Progra~1\Java\jre6\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\PROGRA~1\COMMON~1\ULEADS~1\MPEG;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\DTS\Binn\;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files\Subversion\bin;C:\Program Files\TortoiseSVN\bin;C:\cygwin\bin
+28.4.2011 13:21:57 org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+28.4.2011 13:21:57 org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 4095 ms
+28.4.2011 13:21:58 org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+28.4.2011 13:21:58 org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.20
+28.4.2011 13:21:58 org.apache.catalina.core.StandardContext resourcesStart
+SEVERE: Error starting static Resources
+java.lang.IllegalArgumentException: Document base C:\Users\JONNY\Desktop\pneditor-new\trunk\pneditor2\tomcat\webapps\host-manager does not exist or is not a readable directory
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:142)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4048)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4217)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:630)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:556)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:491)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1206)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:314)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:583)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:288)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:413)
+28.4.2011 13:21:58 org.apache.catalina.core.StandardContext start
+SEVERE: Error in resourceStart()
+28.4.2011 13:21:58 org.apache.catalina.core.StandardContext start
+SEVERE: Error getConfigured
+28.4.2011 13:21:58 org.apache.catalina.core.StandardContext start
+SEVERE: Context [/host-manager] startup failed due to previous errors
+28.4.2011 13:21:58 org.apache.catalina.core.StandardContext stop
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/host-manager] has not been started
+28.4.2011 13:21:58 org.apache.catalina.core.StandardContext resourcesStart
+SEVERE: Error starting static Resources
+java.lang.IllegalArgumentException: Document base C:\Users\JONNY\Desktop\pneditor-new\trunk\pneditor2\tomcat\webapps\manager does not exist or is not a readable directory
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:142)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4048)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4217)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:630)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:556)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:491)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1206)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:314)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:583)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:288)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:413)
+28.4.2011 13:21:58 org.apache.catalina.core.StandardContext start
+SEVERE: Error in resourceStart()
+28.4.2011 13:21:58 org.apache.catalina.core.StandardContext start
+SEVERE: Error getConfigured
+28.4.2011 13:21:58 org.apache.catalina.core.StandardContext start
+SEVERE: Context [/manager] startup failed due to previous errors
+28.4.2011 13:21:58 org.apache.catalina.core.StandardContext stop
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager] has not been started
+28.4.2011 13:22:02 org.apache.catalina.core.StandardContext addApplicationListener
+INFO: The listener "com.sun.faces.config.ConfigureListener" is already configured for this context. The duplicate definition has been ignored.
+28.4.2011 13:22:03 com.sun.faces.config.ConfigureListener contextInitialized
+INFO: Initializing Mojarra 2.0.2 (FCS b10) for context '/wfms'
+28.4.2011 13:22:14 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.aliasbean.AliasBeanTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+28.4.2011 13:22:14 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.aliasbean.AliasBeansScopeTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+28.4.2011 13:22:14 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.schedule.ScheduleTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+28.4.2011 13:22:14 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.tabbedpane.HtmlPanelTabbedPaneTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+28.4.2011 13:22:14 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processComponent
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class 'org.apache.myfaces.custom.tree.taglib.TreeTagHandler' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+28.4.2011 13:22:14 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+28.4.2011 13:22:14 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+28.4.2011 13:22:14 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+28.4.2011 13:22:14 com.sun.faces.config.processor.FaceletTaglibConfigProcessor processHandlerClass
+WARNING: JSF1029:  Application is versioned at 2.0 (either explicitly by the version of /WEB-INF/faces-config.xml or the lack of a /WEB-INF/faces-confg.xml), however class '[handler-class: null]' depends on a legacy facelet class.  The facelet artifact represented by this class will not be registered.
+28.4.2011 13:22:14 org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+28.4.2011 13:22:14 org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+28.4.2011 13:22:14 org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/116  config=null
+28.4.2011 13:22:14 org.apache.catalina.startup.Catalina start
+INFO: Server startup in 16518 ms
+28.4.2011 13:22:59 org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+28.4.2011 13:23:00 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+28.4.2011 13:23:01 org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
