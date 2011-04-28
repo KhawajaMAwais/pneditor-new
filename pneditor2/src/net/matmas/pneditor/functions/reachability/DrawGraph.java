@@ -18,7 +18,7 @@ public class DrawGraph extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private Graph graph;
 	int barb = 10;
-    double phi = Math.toRadians(15);
+    double phi = Math.toRadians(17);
     private ArrayList<Rectangle> nodes;
     private int nodeSize;
     private int xStart;
@@ -26,13 +26,14 @@ public class DrawGraph extends JPanel{
     private Rectangle r2;
     private double labelX;
     private double labelY;
-    private int width = 20;
-    private int height = 20;
-
+    private int width = 40;
+    private int height = 40;
+    private String labelValue;
 	
    public DrawGraph(Graph graph) {
 	   	super();
 	   	this.graph = graph;
+                this.labelValue = graph.getLabel();
 	   	nodes = new ArrayList<Rectangle>();
 	   	this.setSize(this.width,this.height);
                 this.setBackground(Color.white);
@@ -58,8 +59,8 @@ public class DrawGraph extends JPanel{
 				   columns = levelCount;
 			   level++;
 		}
-	   	this.setSize(columns*(nodeSize*13+20)+nodeSize*13+50, ((50+rows*70)+70));
-	   	System.out.println("width: "+(columns*(nodeSize*13+20)+nodeSize*13+50)+" height: "+((50+rows*70)+70)+" columns: "+columns+" node size: "+nodeSize);
+	   	this.setSize(columns*(nodeSize*17+40)+nodeSize*17+50, ((50+rows*80)+80));
+	   	System.out.println("width: "+(columns*(nodeSize*17+40)+nodeSize*17+50)+" height: "+((50+rows*80)+80)+" columns: "+columns+" node size: "+nodeSize);
 
    }   
    
@@ -88,14 +89,15 @@ public class DrawGraph extends JPanel{
 			   }
 		   }
 		   
-		   xStart = (this.getWidth()-levelNodes.size()*(nodeSize*13+20))/2;
+		   xStart = (this.getWidth()-levelNodes.size()*(nodeSize*17+40))/2;
 		   
 		   for(int i=0;i<levelNodes.size();i++){
-			   g2d.drawRect(xStart+i*(nodeSize*13+20), 50+level*70, nodeSize*13, 20);
-			   g2d.drawString(levelNodes.get(i).getMarking().toString(), xStart+i*(nodeSize*13+20)+5, 65+level*70);
-			   this.nodes.add(new Rectangle(xStart+i*(nodeSize*13+20), 50+level*70, nodeSize*13, 20));
-			   levelNodes.get(i).setX(xStart+i*(nodeSize*13+20)+((nodeSize*13)/2));
-			   levelNodes.get(i).setY(60+level*70);
+			   g2d.drawRect(xStart+i*(nodeSize*17+40), 50+level*80, nodeSize*17, 40);
+                           g2d.drawString(this.labelValue.toString(), xStart+i*(nodeSize*17+40)+5, 65+level*80);
+			   g2d.drawString(levelNodes.get(i).getMarking().toString(), xStart+i*(nodeSize*17+40)+15, 85+level*80);
+			   this.nodes.add(new Rectangle(xStart+i*(nodeSize*17+40), 50+level*80, nodeSize*17, 40));
+			   levelNodes.get(i).setX(xStart+i*(nodeSize*17+40)+((nodeSize*17)/2));
+			   levelNodes.get(i).setY(60+level*80);
 			   order = 1;
 			   for(Edge e : graph.getEdges()){
 				   if(e.getSourceId() == levelNodes.get(i).getId() && e.getSourceId() == e.getDestinationId()){
@@ -131,8 +133,8 @@ public class DrawGraph extends JPanel{
    }
    
    private GeneralPath getPath(Node n1, Node n2) {
-	   r1 = new Rectangle(n1.getX()-(this.nodeSize*13/2), n1.getY()-10, this.nodeSize*13, 20);
-	   r2 = new Rectangle(n2.getX()-(this.nodeSize*13/2), n2.getY()-10, this.nodeSize*13, 20);
+	   r1 = new Rectangle(n1.getX()-(this.nodeSize*17/2), n1.getY()-10, this.nodeSize*17, 40);
+	   r2 = new Rectangle(n2.getX()-(this.nodeSize*17/2), n2.getY()-10, this.nodeSize*17, 40);
        double x1 = r1.getCenterX();
        double y1 = r1.getCenterY();
        double x2 = r2.getCenterX();
@@ -204,18 +206,18 @@ public class DrawGraph extends JPanel{
    }
    
    private Arc2D drawArc(Node n, int order){
-	   Rectangle rect = new Rectangle(n.getX()-(this.nodeSize/2), n.getY()-10, this.nodeSize, 20);
+	   Rectangle rect = new Rectangle(n.getX()-(this.nodeSize/2), n.getY()-10, this.nodeSize, 40);
 	   double x,y;
 	   float radius;
 	   Arc2D arc;
 	   if((order % 2) == 0){
-		   x = rect.getCenterX()-(rect.getWidth()/2)-20;
+		   x = rect.getCenterX()-(rect.getWidth()/2)-40;
 		   y = rect.getCenterY();
 		   radius = 40+order*5;
 		   arc = new Arc2D.Double(new Rectangle2D.Double(x-radius/2-10, y-radius/2, radius, radius), Math.toDegrees(Math.asin(10/(radius/2))), 360-2*Math.toDegrees(Math.asin(10/(radius/2))), Arc2D.OPEN);
 	   }
 	   else{
-		   x = rect.getCenterX()+(rect.getWidth()/2)+20;
+		   x = rect.getCenterX()+(rect.getWidth()/2)+40;
 		   y = rect.getCenterY();
 		   radius = 40+(order+1)*5;
 		   arc = new Arc2D.Double(new Rectangle2D.Double(x-radius/2+10, y-radius/2, radius, radius), Math.toDegrees(Math.asin(10/(radius/2)))+180, 360-2*Math.toDegrees(Math.asin(10/(radius/2))), Arc2D.OPEN);

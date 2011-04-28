@@ -8,13 +8,23 @@ public class Graph {
 	private ArrayList<Node> nodes;
 	private boolean isBounded;
 	private int deadlocks;
-	
+	private String label;
+
 	public Graph(){
 		this.edges = new ArrayList<Edge>();
 		this.nodes = new ArrayList<Node>();
 		this.isBounded = true;
 		this.deadlocks = 0;
+                this.label = "";
 	}
+
+        public void setLabel(String label) {
+            this.label = label;
+        }
+
+        public String getLabel() {
+            return label;
+        }         
 
 	public void addEdge(int sourceId, int destinationId){
 		this.edges.add(new Edge(sourceId, destinationId));
