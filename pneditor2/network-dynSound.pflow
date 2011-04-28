@@ -1,11 +1,11 @@
 <document>
-   <place id="p10">
-      <x>333</x>
-      <y>160</y>
+   <place id="p1">
+      <x>385</x>
+      <y>96</y>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
-      <tokens>4</tokens>
+      <tokens>2</tokens>
       <isStatic>false</isStatic>
       <IsIterationStart>false</IsIterationStart>
       <IsORSplit>false</IsORSplit>
@@ -15,9 +15,9 @@
       <ORJoinId>null</ORJoinId>
       <IterJoinId>null</IterJoinId>
    </place>
-   <place id="p11">
-      <x>479</x>
-      <y>333</y>
+   <place id="p2">
+      <x>446</x>
+      <y>255</y>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -31,9 +31,9 @@
       <ORJoinId>null</ORJoinId>
       <IterJoinId>null</IterJoinId>
    </place>
-   <place id="p12">
-      <x>602</x>
-      <y>328</y>
+   <place id="p3">
+      <x>588</x>
+      <y>173</y>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -47,9 +47,9 @@
       <ORJoinId>null</ORJoinId>
       <IterJoinId>null</IterJoinId>
    </place>
-   <place id="p13">
-      <x>702</x>
-      <y>350</y>
+   <place id="p4">
+      <x>683</x>
+      <y>305</y>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -63,9 +63,9 @@
       <ORJoinId>null</ORJoinId>
       <IterJoinId>null</IterJoinId>
    </place>
-   <place id="p14">
-      <x>839</x>
-      <y>259</y>
+   <place id="p5">
+      <x>759</x>
+      <y>237</y>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -79,10 +79,26 @@
       <ORJoinId>null</ORJoinId>
       <IterJoinId>null</IterJoinId>
    </place>
-   <transition id="t10">
-      <x>451</x>
-      <y>247</y>
-      <label>t10</label>
+   <place id="p6">
+      <x>811</x>
+      <y>261</y>
+      <labelX>0</labelX>
+      <labelY>23</labelY>
+      <properties/>
+      <tokens>0</tokens>
+      <isStatic>false</isStatic>
+      <IsIterationStart>false</IsIterationStart>
+      <IsORSplit>false</IsORSplit>
+      <IsStartPlace>false</IsStartPlace>
+      <IsEndPlace>false</IsEndPlace>
+      <ArrivalRate>0.0</ArrivalRate>
+      <ORJoinId>null</ORJoinId>
+      <IterJoinId>null</IterJoinId>
+   </place>
+   <transition id="t1">
+      <x>498</x>
+      <y>156</y>
+      <label>t1</label>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -93,10 +109,10 @@
       <ServisRate>0.0</ServisRate>
       <ANDJoinId>null</ANDJoinId>
    </transition>
-   <transition id="t11">
-      <x>499</x>
-      <y>139</y>
-      <label>t11</label>
+   <transition id="t2">
+      <x>580</x>
+      <y>270</y>
+      <label>t2</label>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -107,10 +123,10 @@
       <ServisRate>0.0</ServisRate>
       <ANDJoinId>null</ANDJoinId>
    </transition>
-   <transition id="t12">
-      <x>625</x>
-      <y>146</y>
-      <label>t12</label>
+   <transition id="t3">
+      <x>648</x>
+      <y>303</y>
+      <label>t3</label>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -121,10 +137,24 @@
       <ServisRate>0.0</ServisRate>
       <ANDJoinId>null</ANDJoinId>
    </transition>
-   <transition id="t13">
-      <x>741</x>
-      <y>202</y>
-      <label>t13</label>
+   <transition id="t4">
+      <x>698</x>
+      <y>150</y>
+      <label>t4</label>
+      <labelX>0</labelX>
+      <labelY>23</labelY>
+      <properties/>
+      <MMc>false</MMc>
+      <MM1>false</MM1>
+      <NumberOfServers>1</NumberOfServers>
+      <IsANDSplit>false</IsANDSplit>
+      <ServisRate>0.0</ServisRate>
+      <ANDJoinId>null</ANDJoinId>
+   </transition>
+   <transition id="t5">
+      <x>820</x>
+      <y>159</y>
+      <label>t5</label>
       <labelX>0</labelX>
       <labelY>23</labelY>
       <properties/>
@@ -136,8 +166,8 @@
       <ANDJoinId>null</ANDJoinId>
    </transition>
    <arc>
-      <sourceId>p10</sourceId>
-      <destinationId>t10</destinationId>
+      <sourceId>p1</sourceId>
+      <destinationId>t1</destinationId>
       <IsIterationArc>false</IsIterationArc>
       <Probability>1.0</Probability>
       <multiplicity>1</multiplicity>
@@ -145,8 +175,8 @@
       <properties/>
    </arc>
    <arc>
-      <sourceId>t10</sourceId>
-      <destinationId>p11</destinationId>
+      <sourceId>t1</sourceId>
+      <destinationId>p2</destinationId>
       <IsIterationArc>false</IsIterationArc>
       <Probability>1.0</Probability>
       <multiplicity>1</multiplicity>
@@ -154,8 +184,8 @@
       <properties/>
    </arc>
    <arc>
-      <sourceId>p11</sourceId>
-      <destinationId>t11</destinationId>
+      <sourceId>p2</sourceId>
+      <destinationId>t2</destinationId>
       <IsIterationArc>false</IsIterationArc>
       <Probability>1.0</Probability>
       <multiplicity>1</multiplicity>
@@ -163,8 +193,8 @@
       <properties/>
    </arc>
    <arc>
-      <sourceId>t11</sourceId>
-      <destinationId>p12</destinationId>
+      <sourceId>t2</sourceId>
+      <destinationId>p3</destinationId>
       <IsIterationArc>false</IsIterationArc>
       <Probability>1.0</Probability>
       <multiplicity>1</multiplicity>
@@ -172,8 +202,8 @@
       <properties/>
    </arc>
    <arc>
-      <sourceId>p12</sourceId>
-      <destinationId>t12</destinationId>
+      <sourceId>p3</sourceId>
+      <destinationId>t3</destinationId>
       <IsIterationArc>false</IsIterationArc>
       <Probability>1.0</Probability>
       <multiplicity>1</multiplicity>
@@ -181,8 +211,8 @@
       <properties/>
    </arc>
    <arc>
-      <sourceId>t12</sourceId>
-      <destinationId>p13</destinationId>
+      <sourceId>t3</sourceId>
+      <destinationId>p4</destinationId>
       <IsIterationArc>false</IsIterationArc>
       <Probability>1.0</Probability>
       <multiplicity>1</multiplicity>
@@ -190,8 +220,8 @@
       <properties/>
    </arc>
    <arc>
-      <sourceId>p13</sourceId>
-      <destinationId>t13</destinationId>
+      <sourceId>p4</sourceId>
+      <destinationId>t4</destinationId>
       <IsIterationArc>false</IsIterationArc>
       <Probability>1.0</Probability>
       <multiplicity>1</multiplicity>
@@ -199,15 +229,33 @@
       <properties/>
    </arc>
    <arc>
-      <sourceId>t13</sourceId>
-      <destinationId>p14</destinationId>
+      <sourceId>t4</sourceId>
+      <destinationId>p5</destinationId>
       <IsIterationArc>false</IsIterationArc>
       <Probability>1.0</Probability>
       <multiplicity>1</multiplicity>
       <breakPoints/>
       <properties/>
    </arc>
-   <left>318</left>
-   <top>124</top>
+   <arc>
+      <sourceId>p5</sourceId>
+      <destinationId>t5</destinationId>
+      <IsIterationArc>false</IsIterationArc>
+      <Probability>1.0</Probability>
+      <multiplicity>1</multiplicity>
+      <breakPoints/>
+      <properties/>
+   </arc>
+   <arc>
+      <sourceId>t5</sourceId>
+      <destinationId>p6</destinationId>
+      <IsIterationArc>false</IsIterationArc>
+      <Probability>1.0</Probability>
+      <multiplicity>1</multiplicity>
+      <breakPoints/>
+      <properties/>
+   </arc>
+   <left>370</left>
+   <top>81</top>
    <properties/>
 </document>
