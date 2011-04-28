@@ -21,6 +21,12 @@ public abstract class Node extends Element implements Cloneable, Movable {
 		petriNet.getIdGenerator().setUniqueId(this);
 	}
 
+        
+	public void setPetriNet(PetriNet petriNet, String id) {
+		super.setPetriNet(petriNet);
+		this.id = id;
+	}
+
 	// -------------------------------------------------------------------------
 	
 	private String id;

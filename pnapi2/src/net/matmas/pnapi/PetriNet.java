@@ -49,6 +49,11 @@ public class PetriNet implements Iterable<Element>, WithProperties {
 		place.setPetriNet(this);
 	}
 
+        public void addPlace(Place place,String id) {
+		places.add(place);
+		place.setPetriNet(this,id);
+	}
+
 	public void removePlace(Place place) {
 		places.remove(place);
 	}
@@ -64,6 +69,11 @@ public class PetriNet implements Iterable<Element>, WithProperties {
 	public void addTransition(Transition transition) {
 		transitions.add(transition);
 		transition.setPetriNet(this);
+	}
+
+        public void addTransition(Transition transition, String id) {
+		transitions.add(transition);
+		transition.setPetriNet(this,id);
 	}
 
 	public void removeTransition(Transition transition) {
