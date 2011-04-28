@@ -2,6 +2,8 @@ package net.matmas.pneditor.functions.reachability;
 
 import java.util.ArrayList;
 import java.util.Stack;
+import net.matmas.pnapi.PetriNet;
+import net.matmas.pneditor.PNEditor;
 
 public class Reachability {
 
@@ -12,9 +14,24 @@ public class Reachability {
 		int level = 0;
 		Graph graph = new Graph();
 		Node tempNode;
+                String label = "";
+                PetriNet petriNet = PNEditor.getInstance().getDocument().getPetriNet();
+                int order = 0;
+                for (net.matmas.pnapi.Place places : petriNet.getPlaces()) {
+                    order++;
+                    if(places.getLabel().getText() == null)
+                        label += "p" + order + ",";
+                    else
+                        label += places.getLabel().getText() + ",";
+                }
+                label = label.substring(0,label.length()-1);
+
+                graph.setLabel(label);
+                
 		Stack<Node> unprocessed = new Stack<Node>();
 		ArrayList<Transition> enabledTransitions;
 		Marking initialMarking = new Marking(net);
+
 		Node initialNode = new Node(initialMarking, level, null);
 		graph.addNode(initialNode);
 

@@ -51,8 +51,9 @@ public class Marking {
 	public String toString(){
 		String result = "";
 		for(Mark m : this.marks){
-			result += " "+((m.getTokens()>=900000000)?"w":m.getTokens());
+			result += ","+((m.getTokens()>=900000000)?"w":m.getTokens());
 		}
+                result = result.substring(1, result.length());
 		return result;
 	}
 	
