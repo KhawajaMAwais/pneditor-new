@@ -24,7 +24,6 @@ import net.matmas.pnapi.Transition;
 import net.matmas.pnapi.properties.BooleanProperty;
 import net.matmas.pnapi.properties.Property;
 import net.matmas.pneditor.PNEditor;
-import net.matmas.pneditor.filechooser.EpsFileType;
 import net.matmas.pneditor.filechooser.FileChooserDialog;
 import net.matmas.util.GraphicsTools;
 import net.matmas.util.Point;
@@ -85,7 +84,7 @@ public class ImportOldPflowAction extends Action {
                     Element lastNameElement = (Element)x.item(0);
                     NodeList textLNList = lastNameElement.getChildNodes();
                     String strX = textLNList.item(0).getNodeValue().trim();
-                    int X = Integer.parseInt(strX);
+                    int X = Integer.parseInt(strX)+500;
 
 
                     NodeList y = place.getElementsByTagName("y");
@@ -93,7 +92,7 @@ public class ImportOldPflowAction extends Action {
                     NodeList yyy = yy.getChildNodes();
 
                     String strY = yyy.item(0).getNodeValue().trim();
-                    int Y = Integer.parseInt(strY);
+                    int Y = Integer.parseInt(strY)+300;
 
                     placeimp.setCenter(new Point(X,Y));
 
@@ -161,13 +160,13 @@ public class ImportOldPflowAction extends Action {
                     Element lastNameElement = (Element)x.item(0);
                     NodeList textLNList = lastNameElement.getChildNodes();
                     String strX = textLNList.item(0).getNodeValue().trim();
-                    int X = Integer.parseInt(strX);
+                    int X = Integer.parseInt(strX)+500;
 
                     NodeList y = tran.getElementsByTagName("y");
                     Element yy = (Element)y.item(0);
                     NodeList yyy = yy.getChildNodes();
                     String strY = yyy.item(0).getNodeValue().trim();
-                    int Y = Integer.parseInt(strY);
+                    int Y = Integer.parseInt(strY)+300;
 
                     tranimp.setCenter(new Point(X,Y));
 
