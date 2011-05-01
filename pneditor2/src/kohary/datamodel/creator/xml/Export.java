@@ -51,7 +51,7 @@ public class Export {
 
     }
 
-    private void convertClassToXml() {
+    public void convertClassToXml() {
         for (DataModel dataModel : dataModels) {
             xmlDocument.datamodels.add(getXmlDataModel(dataModel));
         }
@@ -97,5 +97,10 @@ public class Export {
         return xmlDataModel;
 
     }
+
+    public XmlDocument getXmlDocument() {
+        return xmlDocument;
+    }
+    
 
 }

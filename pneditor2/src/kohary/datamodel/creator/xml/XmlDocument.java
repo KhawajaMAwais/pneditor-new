@@ -11,15 +11,18 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
 /**
  *
  * @author Godric
  */
-@XmlRootElement(name="Data_models_for_form")
+@XmlRootElement(name="DataModel")
 public class XmlDocument {
     @XmlElementWrapper(name="datamodels")
     @XmlElement(name="datamodel")
     public List<XmlDataModel> datamodels = new ArrayList<XmlDataModel>();
 
+
+    
 
 }
