@@ -2,6 +2,8 @@ package net.matmas.pneditor.functions;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.ByteArrayOutputStream;
@@ -19,6 +21,7 @@ import javax.swing.JTextField;
 import net.matmas.pnapi.properties.WithProperties;
 import net.matmas.pnapi.xml.XmlDocument;
 import net.matmas.pneditor.PNEditor;
+import net.matmas.pneditor.actions.OpenXmlDatamodelAction;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
@@ -28,35 +31,54 @@ import org.simpleframework.xml.core.Persister;
  */
 public class DeployToServerDialog extends JDialog {
 
+    private String stringXmlDataModelDocument="";
+    private OpenXmlDatamodelAction openAction = new OpenXmlDatamodelAction(stringXmlDataModelDocument,this);    
     private JTextField server = new JTextField();
-    private JTextField username = new JTextField();
-    private JTextField password = new JPasswordField();
+    private JTextField username = new JTextField("admin");
+    private JTextField dataModel = new JTextField();
+    private JTextField password = new JPasswordField("admin");
     private JButton button = new JButton("Deploy");
+    private JButton browseDataModel = new JButton("Import DataModel");
 
 
 	public DeployToServerDialog(JFrame parentFrame, WithProperties withProperties) {
 		super(parentFrame);
+           
 		this.setTitle("Deploy to server");
 
 		this.setSize(320, 150);
 		this.setLocationRelativeTo(getParent());
-        this.getContentPane().setLayout(new FlowLayout(FlowLayout.RIGHT));
+        this.getContentPane().setLayout(new GridLayout(5, 2));
         
         // form elements
         this.add(new JLabel("Server: "));
         server.setPreferredSize(new Dimension(240, 25));
-        server.setText("http://localhost:8080/WorkflowManagementSystem/UploadServlet");
+        server.setText("http://localhost:8080/wfms");
         this.add(server);
+        
 
         this.add(new JLabel("User:"));
         username.setPreferredSize(new Dimension(240, 25));
         this.add(username);
+        
+
+         this.add(new JLabel("Datamodel"));
+        dataModel.setPreferredSize(new Dimension(240, 25));
+        this.add(dataModel);
+        
 
         this.add(new JLabel("Password:"));
         password.setPreferredSize(new Dimension(240, 25));
         this.add(password);
+       
 
+
+        browseDataModel.addActionListener(openAction);
+        
         this.add(button);
+        this.add(browseDataModel);
+       
+     
 
         this.setVisible(true);
 
@@ -85,15 +107,23 @@ public class DeployToServerDialog extends JDialog {
                     urlConn.setRequestProperty
                     ("Content-Type", "application/x-www-form-urlencoded");
 
+                  
+
                     // vygenerovanie XML
                     ByteArrayOutputStream xmlOutput = new ByteArrayOutputStream();
                     Serializer serializer = new Persister();
                     serializer.write(new XmlDocument(PNEditor.getInstance().getDocument()), xmlOutput);
 
+                  
+                    
+                    //serializer2.write(xmlDataModelDocument, xmlOutputDatamodel);
+
+                   
+                   
 
                     // Send POST output.
                     printout = new DataOutputStream(urlConn.getOutputStream());
-                    printout.writeBytes ("username="+dialog.username.getText()+"&password="+dialog.password.getText()+"&xml="+URLEncoder.encode(xmlOutput.toString("UTF-8"), "UTF-8"));
+                    printout.writeBytes ("username="+dialog.username.getText()+"&password="+dialog.password.getText()+"&xml="+URLEncoder.encode(xmlOutput.toString("UTF-8")+"&xmlDatamodel="+openAction.getOutput(), "UTF-8"));
                     printout.flush ();
                     printout.close ();
 
@@ -128,6 +158,8 @@ public class DeployToServerDialog extends JDialog {
 
                 dialog.setVisible(false);
             }
-        });        
+        });
+
+        
 	}
 }

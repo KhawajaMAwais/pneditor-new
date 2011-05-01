@@ -53,6 +53,12 @@ public class Import {
         //dataModelss=dataModels;
     }
 
+    public Import(){
+        
+    }
+
+   
+
     public void load(File file) throws FileNotFoundException, IOException {
         try {
             JAXBContext ctx = JAXBContext.newInstance(XmlDocument.class);
@@ -64,6 +70,11 @@ public class Import {
             Logger.getLogger(Import.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public XmlDocument getXmlDocument(){
+        return this.xmlDocument;
+    }
+
+    
 
     public DataModels setupDatamodels() {
         for (XmlDataModel xmlDatamodel : xmlDocument.datamodels) {

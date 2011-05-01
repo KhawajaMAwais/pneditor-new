@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author Godric
  */
-@XmlRootElement(name="Data_models_for_form")
+@XmlRootElement(name="DataModel")
 public class XmlDataModelDocument {
     @XmlElement(name="datamodel")
     XmlDataModel dataModel = new XmlDataModel();
