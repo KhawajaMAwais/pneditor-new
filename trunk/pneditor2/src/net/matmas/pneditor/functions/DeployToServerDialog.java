@@ -109,7 +109,7 @@ public class DeployToServerDialog extends JDialog {
                     printout = new DataOutputStream(urlConn.getOutputStream());
                     printout.writeBytes ("username="+dialog.username.getText()+"&password="+dialog.password.getText()
                             +"&xml="+URLEncoder.encode(xmlOutput.toString("UTF-8"), "UTF-8")
-                            +"&xmldatamodel="+dialog.openAction.getOutput());
+                            +"&xmldatamodel="+URLEncoder.encode(dialog.openAction.getOutput(), "UTF-8"));
                     printout.flush ();
                     printout.close ();
 
