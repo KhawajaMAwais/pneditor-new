@@ -17,7 +17,7 @@ import net.matmas.util.GraphicsTools;
 public class StopServerAction extends Action {
 
 	public StopServerAction() {
-		String name = "Token flow";
+		String name = "Stop server";
 		putValue(NAME, name);
 		putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/StopServer.gif"));
 		putValue(SHORT_DESCRIPTION, name);

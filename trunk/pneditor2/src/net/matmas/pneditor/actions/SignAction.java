@@ -23,7 +23,7 @@ import net.matmas.util.GraphicsTools;
 public class SignAction extends Action {
 
 	public SignAction() {
-		String name = "Token flow";
+		String name = "Sign all";
 		putValue(NAME, name);
 		putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/Sign.png"));
 		putValue(SHORT_DESCRIPTION, name);
