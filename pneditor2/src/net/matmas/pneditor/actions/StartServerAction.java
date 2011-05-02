@@ -19,7 +19,7 @@ import net.matmas.util.GraphicsTools;
 public class StartServerAction extends Action {
 
 	public StartServerAction() {
-		String name = "Token flow";
+		String name = "Start server";
 		putValue(NAME, name);
 		putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/StartServer.gif"));
 		putValue(SHORT_DESCRIPTION, name);

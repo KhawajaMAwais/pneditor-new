@@ -277,16 +277,16 @@ public class MainFrame extends JFrame implements WindowListener {
                 toolBar.addSeparator();
 		toolBar.add(new AnalyzeAction());
                 toolBar.add(DataModelAction);
-                toolBar.add(deployToServerAction);
                 toolBar.add(ptInvariant);
                 toolBar.add(ReachabilityAction);
                 toolBar.add(TokenFlowAction);
                 toolBar.add(DynSoundAction);
+                toolBar.add(SignAction);
 
                 toolBar.addSeparator();
-                toolBar.add(SignAction);
                 toolBar.add(StartServerAction);
                 toolBar.add(StopServerAction);
+                toolBar.add(deployToServerAction);
 
 		ButtonGroup selectToolButtonGroup = new ButtonGroup();
 		selectToolButtonGroup.add(selectSelectionToolToggleButton);
