@@ -1,14 +1,11 @@
 package net.matmas.pneditor.functions;
 
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -21,7 +18,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import kohary.datamodel.creator.home.CanvasPanel;
 import net.matmas.pnapi.properties.WithProperties;
 import net.matmas.pnapi.xml.XmlDocument;
 import net.matmas.pneditor.PNEditor;
