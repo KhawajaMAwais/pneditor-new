@@ -27,7 +27,7 @@ public class XmlAttribute {
     
     @XmlElementWrapper(name="rights")
     @XmlElement(name="right")
-    List<XmlRight> rights = new LinkedList<XmlRight>();
+    public List<XmlRight> rights = new LinkedList<XmlRight>();
     /*@XmlElement(name="right")
     public String xright;*/
     

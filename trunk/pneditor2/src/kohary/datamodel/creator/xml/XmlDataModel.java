@@ -27,6 +27,6 @@ public class XmlDataModel {
 
     @XmlElementWrapper(name="attributes")
     @XmlElement(name="attribute")
-    List<XmlAttribute> attributes = new LinkedList<XmlAttribute>();
+    public List<XmlAttribute> attributes = new LinkedList<XmlAttribute>();
 
 }
