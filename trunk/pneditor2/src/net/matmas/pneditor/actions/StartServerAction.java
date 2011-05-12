@@ -7,12 +7,9 @@ package net.matmas.pneditor.actions;
 
 import java.awt.event.ActionEvent;
 import java.io.File;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import javax.swing.JOptionPane;
 import net.matmas.pneditor.PNEditor;
 import net.matmas.util.GraphicsTools;
-import org.GNOME.Accessibility.__LoginHelperStub;
 
 /**
  *
