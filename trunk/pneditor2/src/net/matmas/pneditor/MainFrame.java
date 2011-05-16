@@ -39,7 +39,7 @@ import net.matmas.pneditor.actions.PasteAction;
 import net.matmas.pneditor.actions.SelectArcToolAction;
 import net.matmas.pneditor.actions.SelectPlaceToolAction;
 import net.matmas.pneditor.actions.QuitAction;
-import net.matmas.pneditor.actions.ReachabilityAction;
+import net.matmas.pneditor.actions.CoverabilityAction;
 import net.matmas.pneditor.actions.RedoAction;
 import net.matmas.pneditor.actions.SaveFileAction;
 import net.matmas.pneditor.actions.SaveFileAsAction;
@@ -115,7 +115,7 @@ public class MainFrame extends JFrame implements WindowListener {
         private Action deployToServerAction = new DeployToServerAction();
         private Action ptInvariant = new PTInvariantAction();
         private Action DataModelAction = new DataModelAction();
-        private Action ReachabilityAction = new ReachabilityAction();
+        private Action CoverabilityAction = new CoverabilityAction();
         private Action TokenFlowAction = new TokenFlowAction();
         private Action DynSoundAction = new DynSoundAction();
         private Action SignAction = new SignAction();
@@ -227,7 +227,7 @@ public class MainFrame extends JFrame implements WindowListener {
                 analyzeMenu.add(DataModelAction);
                 analyzeMenu.add(deployToServerAction);
                 analyzeMenu.add(ptInvariant);
-                analyzeMenu.add(ReachabilityAction);
+                analyzeMenu.add(CoverabilityAction);
                 analyzeMenu.add(TokenFlowAction);
                 analyzeMenu.add(DynSoundAction);
                 analyzeMenu.add(SignAction);
@@ -278,7 +278,7 @@ public class MainFrame extends JFrame implements WindowListener {
 		toolBar.add(new AnalyzeAction());
                 toolBar.add(DataModelAction);
                 toolBar.add(ptInvariant);
-                toolBar.add(ReachabilityAction);
+                toolBar.add(CoverabilityAction);
                 toolBar.add(TokenFlowAction);
                 toolBar.add(DynSoundAction);
                 toolBar.add(SignAction);

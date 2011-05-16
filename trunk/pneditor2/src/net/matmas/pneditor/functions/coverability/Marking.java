@@ -1,4 +1,4 @@
-package net.matmas.pneditor.functions.reachability;
+package net.matmas.pneditor.functions.coverability;
 
 import java.util.ArrayList;
 public class Marking {
