@@ -1,4 +1,4 @@
-package net.matmas.pneditor.functions.reachability;
+package net.matmas.pneditor.functions.coverability;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,7 +15,7 @@ public class MainWindow extends JFrame implements ActionListener{
 	public MainWindow() {
         initComponents();
         this.setSize(800, 600);
-        this.setTitle("Reachability");
+        this.setTitle("Coverability");
         //loadFile();
     }
 
@@ -93,7 +93,7 @@ public class MainWindow extends JFrame implements ActionListener{
         pack();
         this.net =  LoadFile.load();
          System.out.print(net.toString());
-         this.graph = Reachability.findGraph(this.net);
+         this.graph = Coverability.findGraph(this.net);
          System.out.print(graph.toString());
          this.graphPanel = new DrawGraph(this.graph);
          this.graphPanel.setPreferredSize(this.graphPanel.getSize());
@@ -110,7 +110,7 @@ public class MainWindow extends JFrame implements ActionListener{
          this.order.setText("M = ( "+order+" )   Deadlocks: "+this.graph.getDeadlocks());
 
          if(graph.isBounded()){
-            String liveness = Reachability.checkLiveness(this.graph, this.net) ? " | Net is L4 live" : " | Net is NOT L4 live";
+            String liveness = Coverability.checkLiveness(this.graph, this.net) ? " | Net is L4 live" : " | Net is NOT L4 live";
             this.order.setText(this.order.getText()+liveness);
          }
 
@@ -140,7 +140,7 @@ public class MainWindow extends JFrame implements ActionListener{
  	     }
  	     this.net =  LoadFile.load();
  	     System.out.print(net.toString());
- 	     this.graph = Reachability.findGraph(this.net);
+ 	     this.graph = Coverability.findGraph(this.net);
  	     System.out.print(graph.toString());
  	     this.graphPanel = new DrawGraph(this.graph);
  	     this.graphPanel.setPreferredSize(this.graphPanel.getSize());
@@ -157,7 +157,7 @@ public class MainWindow extends JFrame implements ActionListener{
  	     this.order.setText("M = ( "+order+" )   Deadlocks: "+this.graph.getDeadlocks());
  	     
  	     if(graph.isBounded()){
- 	    	String liveness = Reachability.checkLiveness(this.graph, this.net) ? " | Net is L4 live" : " | Net is NOT L4 live";
+ 	    	String liveness = Coverability.checkLiveness(this.graph, this.net) ? " | Net is L4 live" : " | Net is NOT L4 live";
  	    	this.order.setText(this.order.getText()+liveness);
  	     }
  	    	 
@@ -172,7 +172,7 @@ public class MainWindow extends JFrame implements ActionListener{
     		loadFile();
     	}
     	if("reach".equals(arg0.getActionCommand())){
-    		JFrame check = new CheckReachability(this.graph, this.net);
+    		JFrame check = new CheckCoverability(this.graph, this.net);
     		check.setLocation(this.getX()+30,this.getY()+30);
     	}
     	

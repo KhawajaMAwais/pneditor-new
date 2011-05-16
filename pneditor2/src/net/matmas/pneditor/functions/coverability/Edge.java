@@ -1,4 +1,4 @@
-package net.matmas.pneditor.functions.reachability;
+package net.matmas.pneditor.functions.coverability;
 
 
 public class Edge {

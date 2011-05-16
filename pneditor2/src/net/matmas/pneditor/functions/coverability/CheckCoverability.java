@@ -1,4 +1,4 @@
-package net.matmas.pneditor.functions.reachability;
+package net.matmas.pneditor.functions.coverability;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -11,8 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import net.matmas.pnapi.PetriNet;
+import net.matmas.pneditor.PNEditor;
 
-public class CheckReachability extends JFrame implements ActionListener{
+public class CheckCoverability extends JFrame implements ActionListener{
 	
 	/**
 	 * 
@@ -27,9 +29,9 @@ public class CheckReachability extends JFrame implements ActionListener{
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel markingPanel;
 	
-	public CheckReachability(Graph graph, Net net){
+	public CheckCoverability(Graph graph, Net net){
 		super();
-		this.setTitle("Check reachability");
+		this.setTitle("Check Coverability");
 		this.graph = graph;
 		this.net = net;
 		order = new JLabel("( ");
@@ -40,7 +42,7 @@ public class CheckReachability extends JFrame implements ActionListener{
 
         setAlwaysOnTop(true);
         //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setName("Check Reachability"); // NOI18N
+        setName("Check Coverability"); // NOI18N
         setResizable(false);
 
         
@@ -95,11 +97,26 @@ public class CheckReachability extends JFrame implements ActionListener{
        
 		
 		this.marking = new ArrayList<JTextField>();
-		for(Place p : net.getPlaces()){
-			this.order.setText(this.order.getText()+ p.getLabel() + " , ");
+		/*for(Place p : net.getPlaces()){
+			this.placeOrder.setText(this.placeOrder.getText()+ p.getLabel() + " , ");
 			this.marking.add(new JTextField());
-		}
-		this.order.setText(this.order.getText() + " )");
+		}*/
+                String label = "( ";
+                PetriNet petriNet = PNEditor.getInstance().getDocument().getPetriNet();
+                int placeOrder = 0;
+                for (net.matmas.pnapi.Place places : petriNet.getPlaces()) {
+                    placeOrder++;
+                    if(places.getLabel().getText() == null)
+                        label += "p" + placeOrder + ",";
+                    else
+                        label += places.getLabel().getText() + ",";
+                    
+                    this.marking.add(new JTextField());
+                }
+                label = label.substring(0,label.length()-1);
+                label += " )";
+                this.order.setText(label);
+		//this.order.setText(this.order.getText() + " )");
 		for(JTextField jt : this.marking){
 			jt.setSize(this.getWidth()/net.getPlaces().size(), 20);
 			this.markingPanel.add(jt);
@@ -116,7 +133,7 @@ public class CheckReachability extends JFrame implements ActionListener{
 				marks[i] = Integer.valueOf(this.marking.get(i).getText());
 			}
 			Marking marking = new Marking(marks,net);
-			this.result.setText(Reachability.findMarking(this.net,this.graph,marking));
+			this.result.setText(Coverability.findMarking(this.net,this.graph,marking));
 		}
 		
 	}

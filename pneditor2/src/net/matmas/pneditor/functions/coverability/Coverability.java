@@ -1,11 +1,11 @@
-package net.matmas.pneditor.functions.reachability;
+package net.matmas.pneditor.functions.coverability;
 
 import java.util.ArrayList;
 import java.util.Stack;
 import net.matmas.pnapi.PetriNet;
 import net.matmas.pneditor.PNEditor;
 
-public class Reachability {
+public class Coverability {
 
 	private static final int OMEGA = 1000000000;
 	

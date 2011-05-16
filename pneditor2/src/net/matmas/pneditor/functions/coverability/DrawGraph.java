@@ -1,4 +1,4 @@
-package net.matmas.pneditor.functions.reachability;
+package net.matmas.pneditor.functions.coverability;
 import java.awt.*;
 import java.awt.geom.Arc2D;
 import java.awt.geom.GeneralPath;

@@ -1,4 +1,4 @@
-package net.matmas.pneditor.functions.reachability;
+package net.matmas.pneditor.functions.coverability;
 import java.util.ArrayList;
 import net.matmas.pnapi.PetriNet;
 import net.matmas.pneditor.PNEditor;
@@ -8,8 +8,8 @@ import net.matmas.pneditor.PNEditor;
 public class LoadFile {
 
 	public static Net load() {
-            ArrayList<net.matmas.pneditor.functions.reachability.Place> places = new ArrayList<Place>();
-            ArrayList<net.matmas.pneditor.functions.reachability.Transition> transitions = new ArrayList<Transition>();
+            ArrayList<net.matmas.pneditor.functions.coverability.Place> places = new ArrayList<Place>();
+            ArrayList<net.matmas.pneditor.functions.coverability.Transition> transitions = new ArrayList<Transition>();
             ArrayList<Arc> arcs = new ArrayList<Arc>();
             PetriNet petriNet = PNEditor.getInstance().getDocument().getPetriNet();
             for(net.matmas.pnapi.Place p : petriNet.getPlaces()){

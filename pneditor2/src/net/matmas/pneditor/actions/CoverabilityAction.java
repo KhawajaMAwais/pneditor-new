@@ -7,21 +7,20 @@ package net.matmas.pneditor.actions;
 
 import java.awt.event.ActionEvent;
 import net.matmas.pnapi.PetriNet;
-import net.matmas.pnapi.Place;
 import net.matmas.pneditor.PNEditor;
-import net.matmas.pneditor.functions.reachability.MainWindow;
+import net.matmas.pneditor.functions.coverability.MainWindow;
 import net.matmas.util.GraphicsTools;
 
 /**
  *
  * @author JONNY
  */
-public class ReachabilityAction extends Action {
+public class CoverabilityAction extends Action {
 
-	public ReachabilityAction() {
-		String name = "Reachability graph";
+	public CoverabilityAction() {
+		String name = "Coverability graph";
 		putValue(NAME, name);
-		putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/reachability.png"));
+		putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/coverability.png"));
 		putValue(SHORT_DESCRIPTION, name);
 	}
 
