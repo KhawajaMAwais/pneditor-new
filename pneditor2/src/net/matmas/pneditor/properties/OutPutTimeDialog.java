@@ -1,6 +1,5 @@
 package net.matmas.pneditor.properties;
 
-import com.sun.java.swing.plaf.nimbus.ScrollBarPainter;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Font;

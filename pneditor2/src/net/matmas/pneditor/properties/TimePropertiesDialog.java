@@ -77,13 +77,13 @@ public class TimePropertiesDialog extends JFrame implements ActionListener {
                             }
                         }
                         title += " of place";
-                        Border border = BorderFactory.createTitledBorder("Zadajte pozíciu");
-                        Border borderf = BorderFactory.createTitledBorder("Zadajte logickú funkciu");
+                        Border border = BorderFactory.createTitledBorder("Select position");
+                        Border borderf = BorderFactory.createTitledBorder("Choose logic function");
                         panel.setBorder(border);
                         panelf.setBorder(borderf);
                         panel.add(start);
                         panel.add(end);
-                        label.setText("Intenzita príchodu ks/hod :");
+                        label.setText("Arrival rate case/hour :");
                         panel.add(label);
                         start.addActionListener(this);
                         arrivalrate.disable();
@@ -109,21 +109,23 @@ public class TimePropertiesDialog extends JFrame implements ActionListener {
                                 mmc.setSelected(transition.getMMc());
                                 Double text = transition.getServisRate();
                                 servisrate.setText(text.toString());
+                                servisrate.setToolTipText("Servis time pre hour");        
                                 Integer textt = transition.getNumberOfServers();
                                 serversnumber.setText(textt.toString());
+                                serversnumber.setToolTipText("Number of servers");
                             }
                         }
 			title += " of transition";
-                        Border border = BorderFactory.createTitledBorder("Zadajte logickú funkciu");
-                        Border borders = BorderFactory.createTitledBorder("Zadajte servisný čas v minútach");
-                        Border borderf = BorderFactory.createTitledBorder("Zadajte typ servera");
+                        Border border = BorderFactory.createTitledBorder("Choose logic function");
+                        Border borders = BorderFactory.createTitledBorder("Enter servis time in min.");
+                        Border borderf = BorderFactory.createTitledBorder("Choose the server type");
                         panel.setBorder(border);
                         panelb.setBorder(borders);
                         panelf.setBorder(borderf);
                         andsplit.addActionListener(this);
                         panel.add(andsplit);
-                        label.setText("Servisný čas na jednotku v min. :");
-                        labela.setText("Zadajte počet serverov :");
+                        label.setText("Servis time per case in min. :");
+                        labela.setText("Enter number of servers :");
                         panelb.add(label);
                         panelb.add(servisrate);
                         serversnumber.disable();
@@ -149,13 +151,14 @@ public class TimePropertiesDialog extends JFrame implements ActionListener {
                             iterationarc.setSelected(arca.getIsIterationArc());
                             Double text = arca.getProbability();
                             probability.setText(text.toString());
+                            probability.setToolTipText("Probability for case");
                             }
                         }
 			title += " of arc";
-                        Border border = BorderFactory.createTitledBorder("Označte ak je vetva iteračná");
-                        Border borders = BorderFactory.createTitledBorder("Zadajte pravdepodobnosť pre vetvu");
+                        Border border = BorderFactory.createTitledBorder("Select if arc is iteration");
+                        Border borders = BorderFactory.createTitledBorder("Enter the probability of arc");
                         panel.setBorder(border);
-                        label.setText("Pravdepodobnosť pre vetvu v <0,1>:");
+                        label.setText("probability of arc in <0,1>:");
                         panel.add(iterationarc);
                         panelb.setBorder(borders);
                         panelb.add(label);
@@ -245,7 +248,7 @@ public class TimePropertiesDialog extends JFrame implements ActionListener {
                             Logger.getLogger(TimePropertiesDialog.class.getName()).log(Level.SEVERE, null, ex);
                         }
                            arcc.setProbability(pomocnap);
-                           System.out.println("Pravdepodobnost : " + arc.getProbability());
+                     
                         }
                     }
                 }
@@ -254,7 +257,7 @@ public class TimePropertiesDialog extends JFrame implements ActionListener {
 
             if(e.getActionCommand().equals("Cancel")){
                 this.dispose();
-                System.out.println(petriNet.getPetrinetName());
+                
             }
             if(e.getActionCommand().equals("Set Or Split")){
               for (Place place : petriNet.getPlaces()) {
