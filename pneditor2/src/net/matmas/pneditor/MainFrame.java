@@ -65,6 +65,7 @@ public class MainFrame extends JFrame implements WindowListener {
 
 	public MainFrame(String title) {
 		super(title);
+                this.setTitle("PETRIFLOW");
 		setupLayout();
 		setupFrameIcons();
 		setupMainMenu();
