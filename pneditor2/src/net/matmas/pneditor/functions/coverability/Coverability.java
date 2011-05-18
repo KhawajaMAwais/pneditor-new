@@ -114,7 +114,7 @@ public class Coverability {
 
 	public static String findMarking(Net net, Graph graph, Marking marking) {
 		Graph reversedGraph;
-		boolean isReachable = false;
+		boolean isCoverable = false;
 		boolean bounded = true;
 		String result = "";
 
@@ -131,9 +131,9 @@ public class Coverability {
 
 			for (Node n : reversedGraph.getNodes()) {
 				if (n.getMarking().equalsTo(new Marking(net))) {
-					isReachable = true;
+					isCoverable = true;
 					result = marking.toString()
-							+ " is reachable\n\nwith firing sequence:\n\n";
+							+ " is coverable\n\nwith firing sequence:\n\n";
 					net.setMarking(marking);
 					int i = 0;
 					for (Edge e : getRoute(reversedGraph, n.getMarking(), net)) {
@@ -148,9 +148,9 @@ public class Coverability {
 		} else {
 			for (Node n : graph.getNodes()) {
 				if (n.getMarking().equalsTo(marking)) {
-					isReachable = true;
+					isCoverable = true;
 					result = marking.toString()
-							+ " is reachable\n\nwith firing sequence:\n\n";
+							+ " is coverable\n\nwith firing sequence:\n\n";
 					ArrayList<Edge> route = getRoute(graph, marking, net);
 					for (int i = route.size() - 1; i >= 0; i--) {
 						if (i == route.size() - 1)
@@ -162,12 +162,12 @@ public class Coverability {
 			}
 		}
 
-		if (!isReachable) {
+		if (!isCoverable) {
 			if (!bounded) {
 				result = "Can't decide if " + marking.toString()
-						+ " is reachable";
+						+ " is coverable";
 			} else {
-				result = marking.toString() + " is not reachable";
+				result = marking.toString() + " is not coverable";
 			}
 		}
 
