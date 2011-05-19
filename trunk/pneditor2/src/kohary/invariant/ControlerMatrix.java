@@ -16,11 +16,12 @@ public final class ControlerMatrix implements ControlMatrix {
     private BigMatrix matrix;
     private PetriNet net;
     private int sizeOfIdentityMatrix, widthOfIncidenceMatrix;
-    
+    private String type;
 
     public ControlerMatrix(PetriNet net, String type) {
         this.net = net;
         createMatrix(type);
+        this.type=type;
         printMatrix();
     }
 
@@ -90,9 +91,11 @@ public final class ControlerMatrix implements ControlMatrix {
     }
 
     public void printMatrix() {
+
         for (int i = 0; i < matrix.getCountOfRows(); i++) { //rows of Iden Matrix
 
             for (int j = 0; j < matrix.getCountOfColumn(); j++) { //column of Big Matrix
+               
                 if(j==matrix.getCountOfA()){
                     System.out.print(" |");
                 }
@@ -105,14 +108,26 @@ public final class ControlerMatrix implements ControlMatrix {
     }
     public String toStringMatrix(){
         String output="";
-           for (int i = 0; i < matrix.getCountOfRows(); i++) { //rows of Iden Matrix
+
+       
+           for (int i = -1; i < matrix.getCountOfRows(); i++) { //rows of Iden Matrix
 
             for (int j = 0; j < matrix.getCountOfColumn(); j++) { //column of Big Matrix
+                if(i==-1){
+
+                    if(type.equals("P") && (j<net.getPlaces().size())){
+                        output+= net.getPlaces().get(j).toString()+" ";
+                    }else if(type.equals("T")&& j<net.getTransitions().size()){
+                        output+= net.getTransitions().get(j).toString()+" ";
+                    }
+                }else{
                 if(j==matrix.getCountOfA()){
                     output+=" |";
                 }
                 output+=matrix.getValueAt(i, j);
+                
                 output+="   ";
+                }
             }
             output+="\n";
         }
