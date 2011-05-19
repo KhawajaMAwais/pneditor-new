@@ -71,6 +71,41 @@ public abstract class Node extends Element implements Cloneable, Movable {
 		return connectedArcs;
 	}
 
+        //----------------------- dynSound
+        public Set<Arc> getConnectedArcs(boolean placeToTransition,PetriNet petriNet) {
+                PetriNet pnet = petriNet;
+		Set<Arc> connectedArcs = new HashSet<Arc>();
+		for (Arc arc : pnet.getArcs()) {
+			if ((arc.getSource() == this || arc.getDestination() == this) && arc.isPlaceToTransition() == placeToTransition) {
+				connectedArcs.add(arc);
+			}
+		}
+		return connectedArcs;
+	}
+
+        public Arc getConnectedArcTP(Node node,boolean placeToTransition,PetriNet petriNet) {
+                PetriNet pnet = petriNet;
+                for (Arc arc : pnet.getArcs()) {
+			if (arc.getSource() == node && arc.getDestination() == this && arc.isPlaceToTransition() == placeToTransition) {
+                            System.out.println(arc.getDestination().getLabel().getText());
+                            return arc;
+			}
+		}
+		return null;
+	}
+
+        public Arc getConnectedArcPT(Node node,boolean placeToTransition,PetriNet petriNet) {
+                PetriNet pnet = petriNet;
+                for (Arc arc : pnet.getArcs()) {
+			if (arc.getSource() == this && arc.getDestination() == node && arc.isPlaceToTransition() == placeToTransition) {
+                            System.out.println(arc.getDestination().getLabel().getText());
+                            return arc;
+			}
+		}
+		return null;
+	}
+
+
         // ---------------------------------------------WORKFLOW anal.
 
 	public Arc getConnectedArcNext() {
