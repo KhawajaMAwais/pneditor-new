@@ -46,7 +46,7 @@ public class DynSoundAction extends Action {
     private int TOposition = 0;
 
     public DynSoundAction() {
-        String name = "";
+        String name = "Dynamic soundness";
         putValue(NAME, name);
         putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/ds.png"));
         putValue(SHORT_DESCRIPTION, name);
