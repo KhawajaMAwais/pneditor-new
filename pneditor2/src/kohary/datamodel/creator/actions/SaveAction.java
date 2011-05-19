@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.xml.bind.JAXBException;
 import net.matmas.pneditor.actions.Action;
 import net.matmas.util.GraphicsTools;
@@ -37,6 +38,8 @@ public class SaveAction extends Action implements ActionListener{
 		putValue(SMALL_ICON, GraphicsTools.getIcon("datamodel/Save16.gif"));
 		putValue(SHORT_DESCRIPTION, name);
         fc = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".xml", "xml");
+        fc.setFileFilter(filter);
 
     }
 
@@ -45,6 +48,7 @@ public class SaveAction extends Action implements ActionListener{
             int returnVal = fc.showSaveDialog(canvas);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 file = fc.getSelectedFile();
+               
                 System.out.print(fc.getCurrentDirectory().toString());
             }
             new Export(canvas.getDataModels(), file);

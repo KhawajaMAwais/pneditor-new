@@ -63,27 +63,7 @@ public final class SMAlghoritm {
     }
 
     public void output() {
-        /*
-        String[] columnNames = {"First Name",
-                        "Last Name",
-                        "Sport",
-                        "# of Years",
-                        "Vegetarian"};
-Object[][] data = {
-    {"Kathy", "Smith",
-     "Snowboarding", new Integer(5), new Boolean(false)},
-    {"John", "Doe",
-     "Rowing", new Integer(3), new Boolean(true)},
-    {"Sue", "Black",
-     "Knitting", new Integer(2), new Boolean(false)},
-    {"Jane", "White",
-     "Speed reading", new Integer(20), new Boolean(true)},
-    {"Joe", "Brown",
-     "Pool", new Integer(10), new Boolean(false)}
-};
-JTable table = new JTable(data, columnNames);
-
-*/
+      
         JOptionPane.showMessageDialog(frame,
                 
                 "T - invarianty:\n"
@@ -93,29 +73,6 @@ JTable table = new JTable(data, columnNames);
                 "P/T invariants analysis",
                 JOptionPane.INFORMATION_MESSAGE,
                 null);
-  /* JFrame frame;
-        Object[][] object = new Object[controlerT.getMatrix().getCountOfRows()][controlerT.getMatrix().getCountOfColumn()];
-        String[] columnNames = new String[controlerT.getMatrix().getCountOfColumn()];
-        for(int i=0;i<controlerT.getMatrix().getCountOfColumn();i++){
-            if(i<controlerT.getMatrix().getCountOfRows())
-            columnNames[i]=net.getTransitions().get(i).toString();
-            else{
-                columnNames[i]=net.getPlaces().get(i-controlerT.getMatrix().getCountOfRows()).toString();
-            }
-        }
-        for(int i=0;i<controlerT.getMatrix().getCountOfRows();i++){
-            for(int j=0;j<controlerT.getMatrix().getCountOfColumn();j++){
-                object[i][j]=controlerT.getMatrix().getValueAt(i, j);
-            }
 
-        }
-JTable table = new JTable( object,columnNames);
-
-    frame = new JFrame();
-    frame.setSize(200, 200);
-    frame.setVisible(true);
-    frame.add(table);
-
-       */
     }
 }
