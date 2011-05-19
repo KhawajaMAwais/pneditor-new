@@ -4,20 +4,15 @@
  */
 package kohary.datamodel.creator.home;
 
-import kohary.datamodel.creator.util.DataModels;
 import kohary.datamodel.creator.util.*;
 import kohary.datamodel.creator.attribute.AttributeCreatorFrame;
-import kohary.datamodel.creator.util.ListModel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
@@ -119,8 +114,11 @@ public class ListEditorModel<E> extends JPanel implements InterfaceOfDataModels,
 
         if (list.getSelectedIndices().length > 0) {
             setupShowPanel();
+            System.out.println("tralal1");
+
         } else // dataModelSelectPanel.getShowModelPanel().getShowAtPanel().fillShowPanel((DataModel)list.getSelectedValue());
         {
+            System.out.println("tralal2");
             removeShowPanelComponent();
         }
        isEditable = list.getSelectedIndices().length == 1;
@@ -153,7 +151,10 @@ public class ListEditorModel<E> extends JPanel implements InterfaceOfDataModels,
             dataModelSelectPanel.getShowModelPanel().getPlace().upDatePlace((DataModel) list.getSelectedValue());
             dataModelSelectPanel.revalidate();
 
-        } 
+        }else{
+            dataModelSelectPanel.getShowModelPanel().getShowAtPanel().fillShowPanel((DataModel) list.getSelectedValue());
+             dataModelSelectPanel.revalidate();
+        }
 
     }
 
