@@ -53,7 +53,6 @@ import net.matmas.pneditor.actions.SetTokensAction;
 import net.matmas.pneditor.actions.SignAction;
 import net.matmas.pneditor.actions.StartServerAction;
 import net.matmas.pneditor.actions.StopServerAction;
-import net.matmas.pneditor.actions.TokenFlowAction;
 import net.matmas.pneditor.actions.UndoAction;
 import net.matmas.util.GraphicsTools;
 
@@ -117,7 +116,6 @@ public class MainFrame extends JFrame implements WindowListener {
         private Action ptInvariant = new PTInvariantAction();
         private Action DataModelAction = new DataModelAction();
         private Action CoverabilityAction = new CoverabilityAction();
-        private Action TokenFlowAction = new TokenFlowAction();
         private Action DynSoundAction = new DynSoundAction();
         private Action SignAction = new SignAction();
         private Action StartServerAction = new StartServerAction();
@@ -229,7 +227,6 @@ public class MainFrame extends JFrame implements WindowListener {
                 analyzeMenu.add(deployToServerAction);
                 analyzeMenu.add(ptInvariant);
                 analyzeMenu.add(CoverabilityAction);
-                analyzeMenu.add(TokenFlowAction);
                 analyzeMenu.add(DynSoundAction);
                 analyzeMenu.add(SignAction);
                 analyzeMenu.add(StartServerAction);
@@ -280,7 +277,6 @@ public class MainFrame extends JFrame implements WindowListener {
                 toolBar.add(DataModelAction);
                 toolBar.add(ptInvariant);
                 toolBar.add(CoverabilityAction);
-                toolBar.add(TokenFlowAction);
                 toolBar.add(DynSoundAction);
                 toolBar.add(SignAction);
 
