@@ -6,13 +6,19 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import net.matmas.pnapi.Element;
 import net.matmas.pnapi.Marking;
 import net.matmas.pnapi.Transition;
+import net.matmas.pnapi.properties.RoleProperty;
 import net.matmas.pneditor.Canvas;
 import net.matmas.pneditor.PNEditor;
 import net.matmas.util.Point;
+import xesloganalyzer.XESEvent;
+import xesloganalyzer.XESTrace;
 
 /**
  *
@@ -22,6 +28,8 @@ public class FireFeature extends Feature implements MouseListener {
 
 	private boolean simulationInProgress = false;
 	private Marking oldMarking = null;
+        private XESTrace newTrace;
+        private  XESEvent event=null;
 
 	public FireFeature(Canvas canvas) {
 		super(canvas);
@@ -42,10 +50,58 @@ public class FireFeature extends Feature implements MouseListener {
 						if (!simulationInProgress) {
 							simulationInProgress = true;
 							oldMarking = new Marking(currentmarking);
+                                                        if(canvas.isLogging){
+                                                            newTrace = canvas.newTrace;
+                                                        }
 						}
+                                                // new event 
+                                                
+                                                if(canvas.isLogging){
+                                                String resource = "";
+                                                String time="";
+                                                String name = "UNDEFINED";
+                                                String[] resources =  new String[100];
+                                                if(transition.getProperties().getFilteredByClass(RoleProperty.class).size()==0){
+                                                    resource = "UNDEFINED";
+                                                }
+                                                if(transition.getProperties().getFilteredByClass(RoleProperty.class).size()==1){
+                                                    resource = transition.getProperties().getFilteredByClass(RoleProperty.class).get(0).getRoleId();
+                                                }
+                                                if(transition.getProperties().getFilteredByClass(RoleProperty.class).size()>1){
+                                                    int i = 0;
+                                                    for(RoleProperty proprol : transition.getProperties().getFilteredByClass(RoleProperty.class)){                                                        
+                                                       resources[i]=proprol.getRoleId();
+                                                       i++;
+                                                    
+                                                    }
+                                                    resource = (String) JOptionPane.showInputDialog(null, 
+                                                    "Choose role for transition",
+                                                    "Roles for transition",
+                                                    JOptionPane.QUESTION_MESSAGE, 
+                                                    null, 
+                                                    resources, 
+                                                    resources[0]);
+                                                }
+                                                if(resource==null){
+                                                    resource = "UNDEFINED";
+                                                }
+                                                 SimpleDateFormat ISO8601Local = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+                                                 Date now = new Date();
+                                                 time = ISO8601Local.format(now); 
+                                                 if(transition.getLabel()!=null){
+                                                     name = transition.getLabel().getText().toString();
+                                                 }
+                                                    event = new XESEvent(name,time, resource, "complete");
+                                                    newTrace.addEventToTrace(event);
+                                                    PNEditor.getInstance().getMainFrame().infolog.setText("Event added --- event properies : name="
+                                                            + name+"  time="+time +"  resource="+resource+"  lifecycle=complete");
+                                                }
+                                                                                   
+                                                 // new event      
 						currentmarking.fire(transition);
 						canvas.repaint();
-					}
+                                            
+                                        }
 				}
 			}
 			if (clickedElement == null) {
@@ -57,6 +113,17 @@ public class FireFeature extends Feature implements MouseListener {
 					}
 					else {
 						PNEditor.getInstance().getToolSelector().selectTool_Select();
+                                                // new trace
+                                                if(canvas.isLogging){
+                                                    canvas.logtable.addTraceToLog(newTrace);
+                                                    newTrace=null;
+                                                    canvas.logtable.show();
+                                                    canvas.setIsLogging(false);
+                                                    PNEditor.getInstance().getMainFrame().panel.setVisible(false);
+                                                    PNEditor.getInstance().getMainFrame().panel.repaint();
+                                                }
+                                                // new trace
+                                                
 					}
 				}
 			}

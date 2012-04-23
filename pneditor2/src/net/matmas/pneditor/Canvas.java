@@ -33,6 +33,8 @@ import net.matmas.pneditor.features.SubnetResizeFeature;
 import net.matmas.pneditor.features.TokenFeature;
 import net.matmas.pneditor.features.ToolSelectionFeature;
 import net.matmas.util.Point;
+import xesloganalyzer.LogTable;
+import xesloganalyzer.XESTrace;
 
 /**
  *
@@ -44,12 +46,16 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         public boolean SetOrJoin = false;
         public boolean SetAndJoin = false;
         public boolean SetiterJoin = false;
-		public Place pomp;
+        public boolean isLogging = false;
+	public LogTable logtable;
+        public XESTrace newTrace;
+        public Place pomp;
                 public Transition pompt;
 	public Canvas(DrawingBoard drawingBoard) {
 		this.drawingBoard = drawingBoard;
 		this.setBackground(Color.white);
-
+                logtable = new LogTable();
+                logtable.hide();
 		features.add(new PopupMenuFeature(this));
 		features.add(new SelectionDrawingFeature(this));
 		features.add(new PetriNetFeature(this));
@@ -69,6 +75,18 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 		this.addMouseMotionListener(this);
 		this.addMouseListener(this);
 	}
+        
+        // -------------------------------------------------------------------------
+
+        public boolean isIsLogging() {
+            return isLogging;
+        }
+
+        public void setIsLogging(boolean isLogging) {
+            this.isLogging = isLogging;
+        }
+
+        
 
 	// -------------------------------------------------------------------------
 
