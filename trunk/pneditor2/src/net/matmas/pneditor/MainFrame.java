@@ -1,20 +1,27 @@
 package net.matmas.pneditor;
 
+import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
 import net.matmas.pneditor.actions.SelectFireToolAction;
 import java.awt.BorderLayout;
 import java.awt.Image;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.prefs.Preferences;
 import javax.swing.ButtonGroup;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
@@ -40,6 +47,7 @@ import net.matmas.pneditor.actions.SelectArcToolAction;
 import net.matmas.pneditor.actions.SelectPlaceToolAction;
 import net.matmas.pneditor.actions.QuitAction;
 import net.matmas.pneditor.actions.CoverabilityAction;
+import net.matmas.pneditor.actions.LogAction;
 import net.matmas.pneditor.actions.RedoAction;
 import net.matmas.pneditor.actions.SaveFileAction;
 import net.matmas.pneditor.actions.SaveFileAsAction;
@@ -62,6 +70,7 @@ import net.matmas.util.GraphicsTools;
  */
 public class MainFrame extends JFrame implements WindowListener {
 
+    
 	public MainFrame(String title) {
 		super(title);
                 this.setTitle("PETRIFLOW");
@@ -70,6 +79,7 @@ public class MainFrame extends JFrame implements WindowListener {
 		setupMainMenu();
 		setupToolbar();
 		setupPopupMenus();
+                setupLogInfo();
 		int width = preferences.getInt(Setting.width.name(), 600);
 		int height = preferences.getInt(Setting.height.name(), 500);
 		this.setSize(width, height);
@@ -107,7 +117,34 @@ public class MainFrame extends JFrame implements WindowListener {
 	private void setupLayout() {
 		this.add(drawingBoard, BorderLayout.CENTER);
 	}
+        
+         // log info
+            
+        public JLabel infolog;
+        public JPanel panel;
+        public JButton interuptlogging = new JButton("Interrupt");
+        private void setupLogInfo() {
+            panel = new JPanel();
+            interuptlogging.addActionListener(new ActionListener() {
 
+            public void actionPerformed(ActionEvent e) {
+               PNEditor.getInstance().getMainFrame().panel.setVisible(false);
+               PNEditor.getInstance().getMainFrame().panel.repaint();
+               PNEditor.getInstance().getMainFrame().getDrawingBoard().getCanvas().logtable.show();
+               PNEditor.getInstance().getMainFrame().getDrawingBoard().getCanvas().setIsLogging(false);
+            }
+        });
+            ImageIcon  icon = new ImageIcon(GraphicsTools.class.getResource("/resources/pneditor/eye.gif"));
+            infolog = new JLabel(icon);
+            infolog.setText("Logging");
+            panel.add(infolog);
+            panel.add(interuptlogging);
+            this.add(panel,BorderLayout.SOUTH);
+            panel.setVisible(false);
+        }
+        
+        //log info
+        
 	private Action newFileAction = new NewFileAction();
 	private Action openFileAction = new OpenFileAction();
 	private Action saveFileAction = new SaveFileAction();
@@ -120,6 +157,7 @@ public class MainFrame extends JFrame implements WindowListener {
         private Action SignAction = new SignAction();
         private Action StartServerAction = new StartServerAction();
         private Action StopServerAction = new StopServerAction();
+        private Action logAction = new LogAction();
         private Action ImporOldPflowAction = new ImportOldPflowAction();
 	private Action quitAction = new QuitAction();
 	
@@ -231,6 +269,7 @@ public class MainFrame extends JFrame implements WindowListener {
                 analyzeMenu.add(SignAction);
                 analyzeMenu.add(StartServerAction);
                 analyzeMenu.add(StopServerAction);
+                analyzeMenu.add(logAction);
 
 		helpMenu.add(aboutAction);
 	}
@@ -284,6 +323,8 @@ public class MainFrame extends JFrame implements WindowListener {
                 toolBar.add(StartServerAction);
                 toolBar.add(StopServerAction);
                 toolBar.add(deployToServerAction);
+                toolBar.addSeparator();
+                toolBar.add(logAction);
 
 		ButtonGroup selectToolButtonGroup = new ButtonGroup();
 		selectToolButtonGroup.add(selectSelectionToolToggleButton);
