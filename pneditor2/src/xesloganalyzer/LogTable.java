@@ -4,6 +4,7 @@ import com.itextpdf.text.DocumentException;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Insets;
@@ -19,8 +20,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -39,11 +43,19 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import lpsolve.LpSolveException;
+import net.matmas.pnapi.FiringSequence;
+import net.matmas.pnapi.PetriNet;
+import net.matmas.pnapi.Transition;
+import net.matmas.pneditor.PNEditor;
+import net.matmas.pnsynthesizer.layout.graphviz.GraphvizLayout;
+import net.matmas.pnsynthesizer.synthesis.wrongcontinuations.Synthesis;
 import org.deckfour.xes.in.XesXmlParser;
 import org.deckfour.xes.info.XLogInfo;
 import org.deckfour.xes.info.XLogInfoFactory;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.out.XesXmlSerializer;
+import org.openide.util.Exceptions;
 
 /*
  * To change this template, choose Tools | Templates
@@ -79,6 +91,8 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
     private JButton close = new JButton("Close log");
     private JButton modify = new JButton("Modify log");
     private JButton analyze = new JButton("Analyze log");
+    private JButton alpha = new JButton("Alpha miner");
+    private JButton synthesize = new JButton("Synthesize");
     private JButton newlog = new JButton("Create log");
     private JButton exit = new JButton("EXIT");
     private JLabel testlab;
@@ -130,8 +144,8 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
         tableE.setFillsViewportHeight(true);
         JPanel work = new JPanel(new GridLayout(0,1));
         JPanel delTE = new JPanel();
-        JPanel modanal = new JPanel(new GridLayout(0,1,3,3));
-        modanal.setBorder(new EmptyBorder(10, 10, 10, 10) );
+        JPanel modanal = new JPanel(new GridLayout(0,1,1,1));
+        modanal.setBorder(new EmptyBorder(2, 10, 2, 10) );
         panelmenu.setBorder(new EmptyBorder(10, 10, 10, 10) );
         Border eBorder = BorderFactory.createEtchedBorder();  
         area.setBorder( BorderFactory.createTitledBorder( eBorder, "Element information" ) );  
@@ -141,8 +155,9 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
         delTE.add(addt);
         modanal.add(modify);
         modanal.add(analyze);
+        modanal.add(alpha);
+        modanal.add(synthesize);
         work.add(delTE);
-        work.add(modanal);
         work.add(modanal);
         panelinfo.add(work); 
         panelmenu.add(newlog);
@@ -171,6 +186,8 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
         close.addActionListener(this);
         modify.addActionListener(this);
         analyze.addActionListener(this);
+        alpha.addActionListener(this);
+        synthesize.addActionListener(this);
         exit.addActionListener(this);
     }
     
@@ -234,6 +251,77 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         
+        if(e.getActionCommand().equals("Alpha miner")){
+             
+        }
+        
+        if(e.getActionCommand().equals("Synthesize")){
+            FileOutputStream fileOutputStream = null;
+            {
+                OutputStreamWriter out = null;
+                try {
+                    
+                    PNEditor.getInstance().getDocument().getPetriNet().clear();
+                    PNEditor.getInstance().getMainFrame().refreshActions();
+                    File writefile = new File(System.getProperty("user.home") + "/log-pneditor.txt");
+                    fileOutputStream = new FileOutputStream(writefile);
+                    out = new OutputStreamWriter(fileOutputStream, "UTF-8");
+                    int i=0;
+                    for (XESTrace trace : this.xeslog.getTraces()) {
+                            
+                            for (XESEvent event : trace.getEvents()) {
+                            try {
+                                out.write(i + " " + event.getName() + '\n');
+                            } catch (IOException ex) {
+                                Exceptions.printStackTrace(ex);
+                            }
+                            }
+                            i++;
+                        }
+                    try {
+                        out.close();
+                    } catch (IOException ex) {
+                        Exceptions.printStackTrace(ex);
+                    }
+                    File logFile = new File(System.getProperty("user.home") + "/log-pneditor.txt");
+                    PetriNet petriNet = PNEditor.getInstance().getDocument().getPetriNet();
+                    Set<FiringSequence> additionalBehaviour;
+                    try {
+                        additionalBehaviour = new Synthesis(logFile, petriNet).synthesize();
+                    } catch (LpSolveException ex) {
+                        Exceptions.printStackTrace(ex);
+                    }
+                   
+		try {
+                 
+                        new GraphvizLayout(petriNet).layout();
+                    } catch (IOException ex) {
+                        Exceptions.printStackTrace(ex);
+                    }
+		
+		PNEditor.getInstance().getMainFrame().refreshActions();
+                   
+                } catch (UnsupportedEncodingException ex) {
+                    Exceptions.printStackTrace(ex);
+                }catch (FileNotFoundException ex) {
+                   Exceptions.printStackTrace(ex);
+               } finally {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException ex) {
+                        Exceptions.printStackTrace(ex);
+                    }
+                    try {
+                        out.close();
+                    } catch (IOException ex) {
+                        Exceptions.printStackTrace(ex);
+                    }
+                }
+            }
+		
+            
+        }        
+                
         if(e.getActionCommand().equals("Add Case")){
             if(this.xeslog!= null){
             new AddTrace();

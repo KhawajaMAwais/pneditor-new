@@ -88,7 +88,7 @@ public class FireFeature extends Feature implements MouseListener {
                                                  SimpleDateFormat ISO8601Local = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
                                                  Date now = new Date();
                                                  time = ISO8601Local.format(now); 
-                                                 if(transition.getLabel()!=null){
+                                                 if(!transition.getLabel().getText().isEmpty()){
                                                      name = transition.getLabel().getText().toString();
                                                  }
                                                     event = new XESEvent(name,time, resource, "complete");
