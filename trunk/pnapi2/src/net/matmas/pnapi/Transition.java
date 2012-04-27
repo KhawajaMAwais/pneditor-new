@@ -2,6 +2,8 @@ package net.matmas.pnapi;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.HashSet;
+import java.util.Set;
 import net.matmas.util.Point;
 
 /**
@@ -23,7 +25,7 @@ public class Transition extends Node implements Cloneable {
 		g.drawRect(getStart().getX(), getStart().getY(), getWidth()-1, getHeight()-1);
 		getLabel().draw(g, drawingOptions);
 	}
-
+        
 	@Override
 	public Transition getClone() {
 		return (Transition)super.getClone();
@@ -165,6 +167,24 @@ public class Transition extends Node implements Cloneable {
 
 	public void setANDJoinId(String ANDJoinId) {
 		this.ANDJoinId = ANDJoinId;
+	}
+        
+        public Set<Place> getConnectedPlaceNodes() {
+		Set<Place> connectedPlaceNodes = new HashSet<Place>();
+		for (Arc arc : getConnectedArcEdges()) {
+			connectedPlaceNodes.add(arc.getPlace());
+		}
+		return connectedPlaceNodes;
+	}
+        
+        public Set<Arc> getConnectedArcEdges() {
+		Set<Arc> connectedArcEdges = new HashSet<Arc>();
+		for (Arc arcEdge : getPetriNet().getArcs()) {
+			if (arcEdge.getSource() == this || arcEdge.getDestination() == this) {
+				connectedArcEdges.add(arcEdge);
+			}
+		}
+		return connectedArcEdges;
 	}
         
 }

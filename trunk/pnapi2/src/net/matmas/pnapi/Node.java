@@ -8,7 +8,7 @@ import java.util.Set;
  *
  * @author matmas
  */
-public abstract class Node extends Element implements Cloneable, Movable {
+public abstract class Node extends Element implements Cloneable, Movable, Comparable<Node> {
 
 	public Node() {
 		setSize(30, 30);
@@ -61,6 +61,7 @@ public abstract class Node extends Element implements Cloneable, Movable {
 
 	// -------------------------------------------------------------------------
 	
+        
 	public Set<Arc> getConnectedArcs() {
 		Set<Arc> connectedArcs = new HashSet<Arc>();
 		for (Arc arc : getPetriNet().getArcs()) {
@@ -143,6 +144,15 @@ public abstract class Node extends Element implements Cloneable, Movable {
 		}
 		return connectedArcs;
 	}
+        
+        public Arc getConnectedArcToNode(Node node) {
+		for (Arc arc : getPetriNet().getArcs()) {
+			if (arc.getSource() == this && arc.getDestination() == node) {
+				return arc;
+			}
+		}
+		return null;
+	}
 
 	// -------------------------------------------------------------------------
 
@@ -158,5 +168,12 @@ public abstract class Node extends Element implements Cloneable, Movable {
 	}
 
 	// -------------------------------------------------------------------------
-	
+	public int compareTo(Node node) {
+		if (this.getLabel().getText() != null && node.getLabel().getText() != null && !(this.getLabel().getText().equals("") && node.getLabel().getText().equals("")) ) {
+			return this.getLabel().getText().compareTo(node.getLabel().getText());
+		}
+		else {
+			return this.getId().compareTo(node.getId());
+		}
+	}
 }

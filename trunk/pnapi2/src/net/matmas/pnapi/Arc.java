@@ -161,6 +161,10 @@ public class Arc extends Element implements Cloneable {
 	public void setBreakPoints(List<Point> breakPoints) {
 		this.breakPoints = breakPoints;
 	}
+        
+        public void removeBreakPoints() {
+		breakPoints.clear();
+	}
 
 	// -------------------------------------------------------------------------
 
