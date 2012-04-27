@@ -2,6 +2,8 @@ package net.matmas.pnapi;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.HashSet;
+import java.util.Set;
 import net.matmas.pnapi.properties.BooleanProperty;
 import net.matmas.pnapi.properties.Properties;
 import net.matmas.util.GraphicsTools;
@@ -267,5 +269,23 @@ public class Place extends Node implements Cloneable {
         public boolean isStatic(){
            return this.getProperties().containsPropertyWithId("static");
         }
+        
+        public Set<Transition> getConnectedTransitionNodes() {
+		Set<Transition> connectedTransitionNodes = new HashSet<Transition>();
+		for (Arc arcEdge : getConnectedArcEdges()) {
+			connectedTransitionNodes.add(arcEdge.getTransition());
+		}
+		return connectedTransitionNodes;
+	}
+        
+        public Set<Arc> getConnectedArcEdges() {
+		Set<Arc> connectedArcEdges = new HashSet<Arc>();
+		for (Arc arcEdge : getPetriNet().getArcs()) {
+			if (arcEdge.getSource() == this || arcEdge.getDestination() == this) {
+				connectedArcEdges.add(arcEdge);
+			}
+		}
+		return connectedArcEdges;
+	}
 
 }
