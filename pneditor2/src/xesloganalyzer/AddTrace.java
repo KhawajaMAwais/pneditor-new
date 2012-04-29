@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import net.matmas.pneditor.PNEditor;
+import net.matmas.pneditor.actions.Action;
+import net.matmas.pneditor.actions.SignAction;
 
 /**
  *
@@ -53,7 +55,9 @@ public class AddTrace extends JFrame implements ActionListener{
     
     
     public void actionPerformed(ActionEvent e) {
-       if(e.getActionCommand().equals("Save")){ 
+       if(e.getActionCommand().equals("Save")){
+       Action action = new SignAction();
+       action.actionPerformed(e);
        PNEditor.getInstance().getMainFrame().infolog.setText("Logging");    
        PNEditor.getInstance().getMainFrame().panel.setVisible(true);
        PNEditor.getInstance().getMainFrame().panel.repaint();
