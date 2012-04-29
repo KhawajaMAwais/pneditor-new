@@ -1,5 +1,6 @@
 package xesloganalyzer;
 
+import AlphaMiner.AlphaMiner;
 import com.itextpdf.text.DocumentException;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -252,7 +253,7 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
     public void actionPerformed(ActionEvent e) {
         
         if(e.getActionCommand().equals("Alpha miner")){
-             
+             AlphaMiner alphaminer = new AlphaMiner(this.xeslog);
         }
         
         if(e.getActionCommand().equals("Synthesize")){
@@ -543,6 +544,7 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
         if(e.getComponent().equals(tableT)){
         if(xeslog!=null){    
         int rowIndex = tableT.getSelectedRow();
+        if(rowIndex != -1){
         modelE.getDataVector().removeAllElements();
         for(XESEvent event:xeslog.getTraces().get(rowIndex).getEvents()){    
         modelE.addRow(new Object[]{event.getName() +"\n"+event.getResource()});
@@ -555,6 +557,7 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
         area.repaint();
         tableE.repaint();
         selectedTrace = rowIndex;
+        }
         }
         } 
         
