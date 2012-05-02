@@ -5,6 +5,11 @@
 package AlphaMiner;
 
 import java.util.ArrayList;
+import net.matmas.pnapi.Arc;
+import net.matmas.pnapi.PetriNet;
+import net.matmas.pnapi.Place;
+import net.matmas.pnapi.Transition;
+import net.matmas.pneditor.PNEditor;
 import xesloganalyzer.XESLog;
 
 /**
@@ -28,49 +33,21 @@ public class AlphaMiner {
     private XwLoop xwloop;
     private XW wx;
     private ArrayList<MultiRelation> YW=new ArrayList<MultiRelation>();
+    private StartEvents startevents;
+    private EndEvents endevents;
+    private ArrayList<String> transitionsclass;
+    private PetriNet petriNet; 
     
     public AlphaMiner(XESLog xlog) {
+        petriNet = PNEditor.getInstance().getDocument().getPetriNet();
         this.alphalog = new AlphaLog(xlog);
-        createRelations();
-        
-        // test 
+        this.startevents = new StartEvents(alphalog);
+        this.endevents = new EndEvents(this.alphalog);
+        this.alphalog.createAlphabet();
+        transitionsclass = this.alphalog.getAlphabet();
+        createRelations(); 
         this.alphalog.createAlphabet();
         
-        System.out.println("Relations : twoloop");
-        for(DoubleRelation dr : this.twoloop.getTwoloops()){
-            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
-        }
-        System.out.println("TwoloopsBack :");
-        for(DoubleRelation dr : this.twoloopback.getTwoloopsBack()){
-            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
-        }
-        System.out.println("Oneoop:");
-        for(String word : this.oneloop.getOneloop()){
-            System.out.println(word);
-        }
-        
-        
-        System.out.println("Next complet:");
-        for(DoubleRelation dr : this.nextcomplet.getNext()){
-            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
-        }
-        
-        System.out.println("Nextback compete:");
-        for(DoubleRelation dr : this.nextbackcomplet.getNextBack()){
-            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
-        }
-        
-        
-        System.out.println("Noway complete:");
-        for(DoubleRelation dr : this.nowaycomplet.getNoway()){
-            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
-        }
-        
-        
-        System.out.println("Paralel complete:");
-        for(DoubleRelation dr : this.paralelcomplet.getParalel()){
-            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
-        }
         
         
         
@@ -89,53 +66,16 @@ public class AlphaMiner {
         if(oneloop.getOneloop().size()>0){    
         xwloop = new XwLoop(nextcomplet, twoloop, paralelcomplet, nowaycomplet, oneloop);
         
-        System.out.println(" ");
-        System.out.println("XWLoop");
-        for(MultiRelation mr : this.xwloop.getXwloops()){
-            System.out.println("start:"+ mr.getStart()+ "   ends"+mr.getEnd());
-        }
             
         for(String remove : oneloop.getOneloop()){
             this.alphalog.removeEvent(remove);
         }
         
-        for(AlphaTrace trace : alphalog.getTraces()){
-            for(AlphaEvent event : trace.getEvents()){
-                System.out.print(event.getName()+" ");
-            }
-            System.out.println(" ");
-        }
-        
-        
-        next = new NextRelation(this.alphalog);
-        
-        System.out.println("Next:");
-        for(DoubleRelation dr : this.next.getNext()){
-            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
-        }
-        
-        nextback = new NextBack(next);
-        
-        System.out.println("Nextback:");
-        for(DoubleRelation dr : this.nextback.getNextBack()){
-            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
-        }
-        
+        next = new NextRelation(this.alphalog);           
+        nextback = new NextBack(next);            
         this.alphalog.createAlphabet();
-        noway = new NoWay(this.alphalog.getAlphabet(), next);
-        
-        System.out.println("Noway:");
-        for(DoubleRelation dr : this.noway.getNoway()){
-            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
-        }
-        
-        paralel = new Paralel(next, nextback, twoloop, twoloopback);
-        
-         System.out.println("Paralel:");
-        for(DoubleRelation dr : this.paralel.getParalel()){
-            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
-        }
-        
+        noway = new NoWay(this.alphalog.getAlphabet(), next);              
+        paralel = new Paralel(next, nextback, twoloop, twoloopback);       
         imply = new Imply(next, nextback, twoloop, twoloopback);
         wx = new XW(imply, noway,xwloop.getXwloops());
         YW = wx.getYW();
@@ -145,8 +85,81 @@ public class AlphaMiner {
         wx = new XW(imply, nowaycomplet,null);
         YW = wx.getYW();  
         }
+        createTransitions();
+        createNet();
+    }
+    
+    public void createTransitions(){
+        for(String tran : this.transitionsclass){
+            Transition transition = new Transition();
+            transition.getLabel().setText(tran);
+            petriNet.addTransition(transition);
+        }
+    }
+    
+    public void createNet(){
+        int i = 0;
+        for(MultiRelation mr : this.YW){
+           Place place = new Place();
+           String label = "p"+i;
+           i++;
+           place.getLabel().setText(label);
+           petriNet.addPlace(place);
+           for(String starts: mr.getStart()){        
+               for(Transition tran : petriNet.getTransitions()){
+                   if(tran.getLabel().getText().equals(starts)){
+                   Arc arc = new Arc();
+                   arc.setSource(tran);
+                   arc.setDestination(place);
+                   petriNet.addArc(arc);
+                   }
+               }
+               
+           }
+           for(String ends: mr.getEnd()){
+               for(Transition tran : petriNet.getTransitions()){               
+                   if(tran.getLabel().getText().equals(ends)){
+                   Arc arc = new Arc();
+                   arc.setSource(place);
+                   arc.setDestination(tran);
+                   place.getPetriNet().addArc(arc);
+                   }
+               }
+               
+           }
+        }
+        Place start = new Place();
+        start.getLabel().setText("start");
+        petriNet.addPlace(start);
+        for(String event : startevents.getStartEvents()){
+            for(Transition tran : petriNet.getTransitions()){
+                   if(tran.getLabel().getText().equals(event)){
+                   Arc arc = new Arc();
+                   arc.setSource(start);
+                   arc.setDestination(tran);
+                   petriNet.addArc(arc);
+                   }
+               }
+        }
         
+        System.out.println("end places");
+         for(String event : endevents.getEndEvents()){
+             System.out.println(event);
+         }
         
+        Place end = new Place();
+        end.getLabel().setText("end");
+        petriNet.addPlace(end);
+        for(String event : endevents.getEndEvents()){
+            for(Transition tran : petriNet.getTransitions()){
+                   if(tran.getLabel().getText().equals(event)){
+                   Arc arc = new Arc();
+                   arc.setSource(tran);
+                   arc.setDestination(end);
+                   petriNet.addArc(arc);
+                   }
+               }
+        }
     }
     
     

@@ -254,6 +254,14 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
         
         if(e.getActionCommand().equals("Alpha miner")){
              AlphaMiner alphaminer = new AlphaMiner(this.xeslog);
+             try {
+                     PetriNet petriNet = PNEditor.getInstance().getDocument().getPetriNet();
+                        new GraphvizLayout(petriNet).layout();
+                    } catch (IOException ex) {
+                        Exceptions.printStackTrace(ex);
+                    }
+		
+		PNEditor.getInstance().getMainFrame().refreshActions();
         }
         
         if(e.getActionCommand().equals("Synthesize")){
