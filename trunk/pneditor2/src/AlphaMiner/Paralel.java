@@ -31,6 +31,15 @@ public class Paralel {
         }
         
     }
+    
+    public boolean isThere(DoubleRelation dr){
+        for(DoubleRelation drparalel : this.paralel){
+            if(drparalel.getStart().equals(dr.getStart())&&drparalel.getEnd().equals(dr.getEnd())){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public ArrayList<DoubleRelation> getParalel() {
         return paralel;

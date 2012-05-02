@@ -13,14 +13,20 @@ import xesloganalyzer.XESLog;
  */
 public class AlphaMiner {
     private AlphaLog alphalog;
-    private ArrayList<DoubleRelation> oneloops = new ArrayList<DoubleRelation>();
     private TwoLoop twoloop;
     private TwoLoopBack twoloopback;
     private OneLoop oneloop;
     private NextRelation next;
+    private NextRelation nextcomplet;
     private NextBack nextback;
+    private NextBack nextbackcomplet;
     private NoWay noway;
+    private NoWay nowaycomplet;
     private Paralel paralel;
+    private Paralel paralelcomplet;
+    private Imply imply;
+    private XwLoop xwloop;
+    private WX wx;
     
     public AlphaMiner(XESLog xlog) {
         this.alphalog = new AlphaLog(xlog);
@@ -28,9 +34,7 @@ public class AlphaMiner {
         
         // test 
         this.alphalog.createAlphabet();
-        for(String alpha : this.alphalog.getAlphabet()){
-            System.out.println(alpha);
-        }
+        
         System.out.println("Relations : twoloop");
         for(DoubleRelation dr : this.twoloop.getTwoloops()){
             System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
@@ -48,8 +52,18 @@ public class AlphaMiner {
             System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
         }
         
+        System.out.println("Next complet:");
+        for(DoubleRelation dr : this.nextcomplet.getNext()){
+            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
+        }
+        
         System.out.println("Nextback:");
         for(DoubleRelation dr : this.nextback.getNextBack()){
+            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
+        }
+        
+        System.out.println("Nextback compete:");
+        for(DoubleRelation dr : this.nextbackcomplet.getNextBack()){
             System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
         }
         
@@ -58,9 +72,31 @@ public class AlphaMiner {
             System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
         }
         
+        System.out.println("Noway complete:");
+        for(DoubleRelation dr : this.nowaycomplet.getNoway()){
+            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
+        }
+        
         System.out.println("Paralel:");
         for(DoubleRelation dr : this.paralel.getParalel()){
             System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
+        }
+        
+        System.out.println("Paralel complete:");
+        for(DoubleRelation dr : this.paralelcomplet.getParalel()){
+            System.out.println("start: " + dr.getStart() + "  end: "+dr.getEnd());
+        }
+        
+        System.out.println("Imply:");
+        System.out.println("Alphabet : ");
+        for(String alphabet : imply.getImplyalphabet()){
+            System.out.println(alphabet);   
+        }
+        
+        System.out.println(" ");
+        System.out.println("XWLoop");
+        for(MultiRelation mr : this.xwloop.getXwloops()){
+            System.out.println("start:"+ mr.getStart()+ "   ends"+mr.getEnd());
         }
         
         
@@ -70,11 +106,35 @@ public class AlphaMiner {
         twoloop = new TwoLoop(this.alphalog);
         twoloopback = new TwoLoopBack(twoloop);
         oneloop = new OneLoop(this.alphalog);
+        nextcomplet = new NextRelation(this.alphalog);
+        nextbackcomplet = new NextBack(nextcomplet);
+        this.alphalog.createAlphabet();
+        nowaycomplet = new NoWay(this.alphalog.getAlphabet(), nextcomplet);
+        paralelcomplet = new Paralel(nextcomplet, nextbackcomplet, twoloop, twoloopback);
+        
+        if(oneloop.getOneloop().size()>0){    
+        xwloop = new XwLoop(nextcomplet, twoloop, paralelcomplet, nowaycomplet, oneloop);
+            
+        for(String remove : oneloop.getOneloop()){
+            this.alphalog.removeEvent(remove);
+        }
+        
+        for(AlphaTrace trace : alphalog.getTraces()){
+            for(AlphaEvent event : trace.getEvents()){
+                System.out.print(event.getName()+" ");
+            }
+            System.out.println(" ");
+        }
+        
+        
         next = new NextRelation(this.alphalog);
         nextback = new NextBack(next);
         this.alphalog.createAlphabet();
         noway = new NoWay(this.alphalog.getAlphabet(), next);
         paralel = new Paralel(next, nextback, twoloop, twoloopback);
+        imply = new Imply(next, nextback, twoloop, twoloopback);
+        wx = new WX(imply, noway);
+        }
     }
     
     

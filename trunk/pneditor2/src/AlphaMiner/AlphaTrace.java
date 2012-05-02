@@ -26,11 +26,11 @@ public class AlphaTrace {
     
     public void removeEvent(String eventToRemove){
         ArrayList<AlphaEvent> eventsToRemove = new ArrayList<AlphaEvent>();
-        for(AlphaEvent event : this.getEvents()){
-            if(event.equals(eventToRemove)){
+        for(AlphaEvent event : this.events){
+            if(event.getName().equals(eventToRemove)){
                 eventsToRemove.add(event);
             }
         }
-        this.getEvents().removeAll(eventsToRemove);
+        this.events.removeAll(eventsToRemove);
     }
 }
