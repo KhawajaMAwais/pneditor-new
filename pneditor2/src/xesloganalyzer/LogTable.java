@@ -145,7 +145,7 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
         tableE.setFillsViewportHeight(true);
         JPanel work = new JPanel(new GridLayout(0,1));
         JPanel delTE = new JPanel();
-        JPanel modanal = new JPanel(new GridLayout(0,1,1,1));
+        JPanel modanal = new JPanel(new GridLayout(2,2,1,1));
         modanal.setBorder(new EmptyBorder(2, 10, 2, 10) );
         panelmenu.setBorder(new EmptyBorder(10, 10, 10, 10) );
         Border eBorder = BorderFactory.createEtchedBorder();  
