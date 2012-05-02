@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author XY
  */
-public class WX {
+public class XW {
     
     private Imply imply;
     private NoWay noway;
@@ -18,7 +18,7 @@ public class WX {
     private ArrayList<MultiRelation> helpimply = new ArrayList<MultiRelation>();
     private ArrayList<MultiRelation> YW = new ArrayList<MultiRelation>();
 
-    public WX(Imply imply, NoWay noway) {
+    public XW(Imply imply, NoWay noway,ArrayList<MultiRelation> xwloops) {
         this.imply = imply;
         this.noway = noway;
         this.helpimply=imply.getImlply();
@@ -36,12 +36,20 @@ public class WX {
         for(MultiRelation mr : this.helpimply){
             System.out.println("start: "+mr.getStart()+"  ends: "+mr.getEnd());
         }
+        if(xwloops!=null)
+        helpimply.addAll(xwloops);
         clearElements();
         
         System.out.println("YW");
         for(MultiRelation mr : this.YW){
             System.out.println("start: "+mr.getStart()+"  ends: "+mr.getEnd());
         }
+    }
+    
+    
+
+    public ArrayList<MultiRelation> getYW() {
+        return YW;
     }
     
         private void createAllElements(){
