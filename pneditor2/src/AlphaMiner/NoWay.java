@@ -32,6 +32,15 @@ public class NoWay {
         return noway;
     }
     
+     public boolean isThere(DoubleRelation dr){
+        for(DoubleRelation drnoway : this.noway){
+            if(drnoway.getStart().equals(dr.getStart())&&drnoway.getEnd().equals(dr.getEnd())){
+                return true;
+            }
+        }
+        return false;
+    }
+    
     
     
 }
