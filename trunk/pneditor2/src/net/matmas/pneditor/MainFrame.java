@@ -14,7 +14,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.prefs.Preferences;
 import javax.swing.ButtonGroup;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -151,7 +150,7 @@ public class MainFrame extends JFrame implements WindowListener {
 	private Action saveFileAsAction = new SaveFileAsAction();
         private Action deployToServerAction = new DeployToServerAction();
         private Action ptInvariant = new PTInvariantAction();
-        private Action DataModelAction = new DataModelAction();
+       
         private Action CoverabilityAction = new CoverabilityAction();
         private Action DynSoundAction = new DynSoundAction();
         private Action SignAction = new SignAction();
@@ -182,6 +181,10 @@ public class MainFrame extends JFrame implements WindowListener {
 	private Action selectTokenToolAction = new SelectTokenToolAction();
 	private Action selectSubnetToolAction = new SelectSubnetToolAction();
 	private Action selectFireToolAction = new SelectFireToolAction();
+        private Action selectTool_DataModelAction = new DataModelAction(this);
+
+        ///////////////////////////////DATAMODEL, INVARIANT/////////////////////////////////////////
+        public JToggleButton dataModel = new JToggleButton(selectTool_DataModelAction);
 
 	public JToggleButton selectSelectionToolToggleButton = new JToggleButton(selectSelectionToolAction);
 	public JToggleButton selectPlaceToolToggleButton = new JToggleButton(selectPlaceToolAction);
@@ -261,7 +264,7 @@ public class MainFrame extends JFrame implements WindowListener {
                 elementMenu.add(openTimePropertiesAction);
 
                 analyzeMenu.add(new AnalyzeAction());
-                analyzeMenu.add(DataModelAction);
+                analyzeMenu.add(selectTool_DataModelAction);
                 analyzeMenu.add(deployToServerAction);
                 analyzeMenu.add(ptInvariant);
                 analyzeMenu.add(CoverabilityAction);
@@ -313,7 +316,7 @@ public class MainFrame extends JFrame implements WindowListener {
 
                 toolBar.addSeparator();
 		toolBar.add(new AnalyzeAction());
-                toolBar.add(DataModelAction);
+                toolBar.add(selectTool_DataModelAction);
                 toolBar.add(ptInvariant);
                 toolBar.add(CoverabilityAction);
                 toolBar.add(DynSoundAction);

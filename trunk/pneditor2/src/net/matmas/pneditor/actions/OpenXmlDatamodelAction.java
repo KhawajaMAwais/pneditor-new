@@ -16,8 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
-import kohary.datamodel.creator.xml.Import;
-import kohary.datamodel.creator.xml.XmlDocument;
 
 /**
  *
