@@ -56,6 +56,7 @@ import org.deckfour.xes.info.XLogInfo;
 import org.deckfour.xes.info.XLogInfoFactory;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.out.XesXmlSerializer;
+import org.deckfour.xes.util.XTimer;
 import org.openide.util.Exceptions;
 
 /*
@@ -253,7 +254,13 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
     public void actionPerformed(ActionEvent e) {
         
         if(e.getActionCommand().equals("Alpha miner")){
+             PNEditor.getInstance().getDocument().getPetriNet().clear();
+             PNEditor.getInstance().getMainFrame().refreshActions();
+             XTimer timer = new XTimer();
+             timer.start();
              AlphaMiner alphaminer = new AlphaMiner(this.xeslog);
+             timer.stop();
+             System.out.println("Time to alphaminer is :"+timer.getDurationString());
              try {
                      PetriNet petriNet = PNEditor.getInstance().getDocument().getPetriNet();
                         new GraphvizLayout(petriNet).layout();
@@ -296,7 +303,11 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
                     PetriNet petriNet = PNEditor.getInstance().getDocument().getPetriNet();
                     Set<FiringSequence> additionalBehaviour;
                     try {
+                         XTimer timer = new XTimer();
+                         timer.start();
                         additionalBehaviour = new Synthesis(logFile, petriNet).synthesize();
+                         timer.stop();
+                         System.out.println("Time to synthesis is :"+timer.getDurationString());
                     } catch (LpSolveException ex) {
                         Exceptions.printStackTrace(ex);
                     }
