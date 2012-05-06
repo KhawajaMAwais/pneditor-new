@@ -104,7 +104,9 @@ public class XW {
         YW.add(helpimply.get(helpimply.size()-1)); 
        }
         else{
-            YW.add(helpimply.get(0)); 
+            if(helpimply.size()>0){
+            YW.add(helpimply.get(0));
+            }
         }
     }    
         

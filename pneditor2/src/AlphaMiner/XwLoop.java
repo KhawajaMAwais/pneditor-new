@@ -98,7 +98,8 @@ public class XwLoop {
         xwloops.add(baseelements.get(baseelements.size()-1)); 
        }
         else{
-            xwloops.add(baseelements.get(0)); 
+            if(baseelements.size()>0){
+            xwloops.add(baseelements.get(0)); }
         }
     }
     

@@ -33,6 +33,7 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -260,7 +261,7 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
              timer.start();
              AlphaMiner alphaminer = new AlphaMiner(this.xeslog);
              timer.stop();
-             System.out.println("Time to alphaminer is :"+timer.getDurationString());
+             JOptionPane.showMessageDialog(this, "Time to alphaminer is :"+timer.getDurationString()); 
              try {
                      PetriNet petriNet = PNEditor.getInstance().getDocument().getPetriNet();
                         new GraphvizLayout(petriNet).layout();
@@ -272,6 +273,10 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
         }
         
         if(e.getActionCommand().equals("Synthesize")){
+            LoopChecker loopchecker = new LoopChecker(this.xeslog);
+            if(!loopchecker.isLoop()){
+                
+            
             FileOutputStream fileOutputStream = null;
             {
                 OutputStreamWriter out = null;
@@ -307,7 +312,8 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
                          timer.start();
                         additionalBehaviour = new Synthesis(logFile, petriNet).synthesize();
                          timer.stop();
-                         System.out.println("Time to synthesis is :"+timer.getDurationString());
+                         JOptionPane.showMessageDialog(this,"Time to synthesis is :"+timer.getDurationString());
+                        
                     } catch (LpSolveException ex) {
                         Exceptions.printStackTrace(ex);
                     }
@@ -338,7 +344,10 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
                     }
                 }
             }
-		
+        }
+            else{
+               JOptionPane.showMessageDialog(this, "Synthesis does not support mining from log, that contains loops"); 
+            }
             
         }        
                 
@@ -433,6 +442,7 @@ public class LogTable extends JFrame implements ActionListener,MouseListener{
         }
         }   
         if(e.getActionCommand().equals("Close log")){
+            
             modelE.getDataVector().removeAllElements();
             modelT.getDataVector().removeAllElements();
             tableT.repaint();
