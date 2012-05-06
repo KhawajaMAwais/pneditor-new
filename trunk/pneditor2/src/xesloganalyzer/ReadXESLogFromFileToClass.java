@@ -41,7 +41,11 @@ public class ReadXESLogFromFileToClass {
          
          for (int i = 0; i < info.getNumberOfTraces(); i++) {
                 XTrace tracee = log.get(i);
-                XESTrace trace = new XESTrace(tracee.getAttributes().get(keyn).toString(), tracee.getAttributes().get(keyd).toString());
+                String description = "UNDEFINED";
+                if(tracee.getAttributes().get(keyd)!=null){
+                    description = tracee.getAttributes().get(keyd).toString();
+                }
+                XESTrace trace = new XESTrace(tracee.getAttributes().get(keyn).toString(), description);
                  for (int j = 0; j < tracee.size(); j++) {
                      trace.addEventToTrace(new XESEvent(tracee.get(j).getAttributes().get(keyn).toString(),tracee.get(j).getAttributes().get(keyt).toString(), tracee.get(j).getAttributes().get(keyr).toString(), tracee.get(j).getAttributes().get(keyl).toString()));
                  }

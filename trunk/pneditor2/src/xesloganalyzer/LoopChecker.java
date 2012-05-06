@@ -25,10 +25,12 @@ public class LoopChecker {
             }
             
             for(int i =0; i<(trace.getEvents().size()-2);i++){
-            
                 String t1 = trace.getEvents().get(i).getName();
                 String t2 = trace.getEvents().get(i+1).getName();
                 String t3 = trace.getEvents().get(i+2).getName();
+                if(t1.equals(t3)&&!t2.equals(t1)){
+                    return true;
+                }
             
         }
             
