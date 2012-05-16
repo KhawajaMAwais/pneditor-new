@@ -23,7 +23,7 @@ public class DatamodelCreator {
 
     public DatamodelCreator() {
         Preferences preferences = Preferences.userNodeForPackage(this.getClass());
-
+        setCurrentDirectory(new File(preferences.get("current directory", System.getProperty("user.home"))));
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 
@@ -52,6 +52,16 @@ public class DatamodelCreator {
     }
     
         // -------------------------------------------------------------------------
+    	protected File currentDirectory;
+
+	public File getCurrentDirectory() {
+		return currentDirectory;
+	}
+
+	public void setCurrentDirectory(File currentDirectory) {
+		this.currentDirectory = currentDirectory;
+	}
+
     // -------------------------------------------------------------------------
     private  Document document = new Document();
 

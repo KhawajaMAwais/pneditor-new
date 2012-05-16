@@ -62,7 +62,7 @@ public class MainFrame extends JFrame {
         setupLayout();
         setUpToolbar();
         setUpMenuBar();
-        setVisible(false);
+//        setVisible(false);
         setupPopupMenus();
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
