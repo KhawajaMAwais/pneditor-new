@@ -19,7 +19,7 @@ public class SelectDCheckBoxAction extends Action{
         String name = "Checkbox";
 		putValue(NAME, name);
 		putValue(SHORT_DESCRIPTION, name);
-		putValue(SMALL_ICON, GraphicsTools.getIcon("checkbox.png"));
+		putValue(SMALL_ICON, GraphicsTools.getIcon("checkBox.png"));
 		putValue(SHORT_DESCRIPTION, "Checkbox");
 		//putValue(MNEMONIC_KEY, KeyEvent.VK_);
     }

@@ -50,6 +50,7 @@ public class DataModelAction extends Action {
 				DatamodelCreator.getInstance().getMainFrame().setVisible(true);
 			}
 		});
+//        DatamodelCreator.getInstance().getMainFrame().setVisible(true);
         }
 
 }

@@ -19,7 +19,7 @@ public class SelectDRadioButtonAction extends Action{
         String name = "Radiobutton";
 		putValue(NAME, name);
 		putValue(SHORT_DESCRIPTION, name);
-		putValue(SMALL_ICON, GraphicsTools.getIcon("radiobutton.png"));
+		putValue(SMALL_ICON, GraphicsTools.getIcon("radioButton.png"));
 		putValue(SHORT_DESCRIPTION, "Radiobutton");
 		//putValue(MNEMONIC_KEY, KeyEvent.VK_F);
     }

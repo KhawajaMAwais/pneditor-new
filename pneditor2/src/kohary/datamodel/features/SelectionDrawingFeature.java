@@ -38,7 +38,7 @@ public class SelectionDrawingFeature extends Feature implements MouseListener, M
                 clickedElement = null;
         }
 
-        if (PNEditor.getInstance().getToolSelector().isSelectedTool_Select()) {
+        if (DatamodelCreator.getInstance().getSelectionManager().isSelectSelect()) {
             if (mouseButton == MouseEvent.BUTTON1) {
                 if (clickedElement == null) {
                     selecting = true;

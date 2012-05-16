@@ -8,9 +8,10 @@ package kohary.datamodel.actions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import kohary.datamodel.position.PlaceSetFrame;
+import kohary.datamodel.util.GraphicsTools;
 import net.matmas.pneditor.PNEditor;
 
-import net.matmas.util.GraphicsTools;
+
 
 /**
  *
@@ -23,7 +24,7 @@ public class PlaceSettingAction extends Action implements ActionListener {
     public PlaceSettingAction() {       
                 String name = "Association";
 		putValue(NAME, name);
-		putValue(SMALL_ICON, GraphicsTools.getIcon("datamodel/arc.gif"));
+		putValue(SMALL_ICON, GraphicsTools.getIcon("add.gif"));
 		putValue(SHORT_DESCRIPTION, name);
     }
 
