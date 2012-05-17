@@ -55,7 +55,7 @@ public class ArisImporter {
         petriNet = PNEditor.getInstance().getDocument().getPetriNet();
         
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = null;
+        DocumentBuilder db = null;
         try {
             db = dbf.newDocumentBuilder();
         } catch (ParserConfigurationException ex) {
@@ -69,69 +69,73 @@ public class ArisImporter {
         } catch (IOException ex) {
             Exceptions.printStackTrace(ex);
         }
-            
-            NodeList nodeList = doc.getElementsByTagName("ObjDef");// vrati vsetky elementy s tagom ObjDef
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                String str;
-                element el = new element();
-                Node node = nodeList.item(i);
-                NamedNodeMap nnm = node.getAttributes(); // vrati vsetky atributy elementu
-                
-                if (nnm == null)
-                        continue;
-                
-                str = nnm.getNamedItem("TypeNum").getNodeValue();
-                el.type = str.replace("OT_", "");
-                
-                //ak sa nejedna o hlavne elementy, pokracujem na dalsi prvok
-                if (!el.type.equals("EVT") && !el.type.equals("FUNC") && !el.type.equals("RULE"))
+        
+        NodeList nodeList = doc.getElementsByTagName("ObjDef");// vrati vsetky elementy s tagom ObjDef
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            String str;
+            element el = new element();
+            Node node = nodeList.item(i);
+            NamedNodeMap nnm = node.getAttributes(); // vrati vsetky atributy elementu
+
+            if (nnm == null)
                     continue;
-                
-                
-                str = nnm.getNamedItem("ObjDef.ID").getNodeValue();
-                el.ID = str.replace("ObjDef.", "");
-                
-                
-                NodeList nl = node.getChildNodes();
-                for (int j = 0; j < nl.getLength(); j++) {
-                    NamedNodeMap nnm2 = nl.item(j).getAttributes();
-                    if (nnm2 == null)
-                        continue;
-                    
-                    // z childNodov vytiahnem ten, v ktorom ma atribut "AttrDef.Type" hodnotu "AT_NAME" => nazov elementu
-                    if (nnm2.getNamedItem("AttrDef.Type") != null && nnm2.getNamedItem("AttrDef.Type").getNodeValue().equals("AT_NAME")) {
-                        // pozriem na jeho childa "AttrValue" a zoberiem text
-                        el.name = nl.item(j).getChildNodes().item(1).getTextContent();
-                        continue;
-                    }
-                    
-                    // z childNodov vytiahnem ten, ktory ma atribut "ToObjDef.IdRef"
-                    if (nnm2.getNamedItem("ToObjDef.IdRef") != null) {
-                        // vytiehnem si hodnotu tohto atributu
-                        str = nnm2.getNamedItem("ToObjDef.IdRef").getNodeValue();
-                        el.toIdList.add(str.replace("ObjDef.", ""));
-                        continue;
-                    }
+
+            str = nnm.getNamedItem("TypeNum").getNodeValue();
+            el.type = str.replace("OT_", "");
+
+            //ak sa nejedna o hlavne elementy, pokracujem na dalsi prvok
+            if (!el.type.equals("EVT") && !el.type.equals("FUNC") && !el.type.equals("RULE"))
+                continue;
+
+
+            str = nnm.getNamedItem("ObjDef.ID").getNodeValue();
+            el.ID = str.replace("ObjDef.", "");
+
+
+            NodeList nl = node.getChildNodes();
+            for (int j = 0; j < nl.getLength(); j++) {
+                NamedNodeMap nnm2 = nl.item(j).getAttributes();
+                if (nnm2 == null)
+                    continue;
+
+                // z childNodov vytiahnem ten, v ktorom ma atribut "AttrDef.Type" hodnotu "AT_NAME" => nazov elementu
+                if (nnm2.getNamedItem("AttrDef.Type") != null && nnm2.getNamedItem("AttrDef.Type").getNodeValue().equals("AT_NAME")) {
+                    // pozriem na jeho childa "AttrValue" a zoberiem text
+                    el.name = nl.item(j).getChildNodes().item(1).getTextContent();
+                    continue;
                 }
-                list.add(el);
+
+                // z childNodov vytiahnem ten, ktory ma atribut "ToObjDef.IdRef"
+                if (nnm2.getNamedItem("ToObjDef.IdRef") != null) {
+                    // vytiehnem si hodnotu tohto atributu
+                    str = nnm2.getNamedItem("ToObjDef.IdRef").getNodeValue();
+                    el.toIdList.add(str.replace("ObjDef.", ""));
+                    continue;
+                }
             }
-            setArrays ();
+            list.add(el);
+        }
+        setArrays ();
     }
     
-        private void setArrays () {
+    private void setArrays () {
         int counter = 1; // rozlisovanie rovnakych nazvov
         
         //tu sa pohram so zoznamom, vytvorim miesta a prechody
         for (element e:list) {
             //zoznam eventov = miest
             if (e.type.equals("EVT")) {
+                if (placesList.contains(e.name) || transitionsList.contains(e.name))
+                    e.name = e.name + counter++;
                 placesList.add(e.name);
-                 Place place = new Place();
-                 place.getLabel().setText(e.name);
-                 petriNet.addPlace(place); 
+                Place place = new Place();
+                place.getLabel().setText(e.name);
+                petriNet.addPlace(place); 
             }
             //zoznam funkcii = prechodov
             else if (e.type.equals("FUNC")) {
+                if (placesList.contains(e.name) || transitionsList.contains(e.name))
+                    e.name = e.name + counter++;
                 transitionsList.add(e.name);
                 Transition transition = new Transition();
                 transition.getLabel().setText(e.name);
