@@ -25,9 +25,11 @@ import javax.swing.JPopupMenu;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
+import net.matmas.pneditor.actions.WbmImportAction;
 import net.matmas.pneditor.actions.AboutAction;
 import net.matmas.pneditor.actions.Action;
 import net.matmas.pneditor.actions.AnalyzeAction;
+import net.matmas.pneditor.actions.ArisImportAction;
 import net.matmas.pneditor.actions.CopyAction;
 import net.matmas.pneditor.actions.SelectSubnetToolAction;
 import net.matmas.pneditor.actions.CutAction;
@@ -158,6 +160,8 @@ public class MainFrame extends JFrame implements WindowListener {
         private Action StopServerAction = new StopServerAction();
         private Action logAction = new LogAction();
         private Action ImporOldPflowAction = new ImportOldPflowAction();
+        private Action WbmImport = new WbmImportAction();
+        private Action ArisImport = new ArisImportAction();
 	private Action quitAction = new QuitAction();
 	
 	public Action undoAction = new UndoAction();
@@ -239,6 +243,8 @@ public class MainFrame extends JFrame implements WindowListener {
 		fileMenu.add(saveFileAction);
 		fileMenu.add(saveFileAsAction);
                 fileMenu.add(ImporOldPflowAction);
+                fileMenu.add(WbmImport);
+                fileMenu.add(ArisImport);
 		fileMenu.add(quitAction);
 
 		editMenu.add(undoAction);
@@ -294,6 +300,8 @@ public class MainFrame extends JFrame implements WindowListener {
 		toolBar.add(saveFileAction);
 		toolBar.add(saveFileAsAction);
                 toolBar.add(ImporOldPflowAction);
+                toolBar.add(WbmImport);
+                toolBar.add(ArisImport);
 		toolBar.addSeparator();
 
 		toolBar.add(cutAction);
