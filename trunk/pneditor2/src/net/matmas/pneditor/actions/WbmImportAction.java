@@ -26,7 +26,7 @@ import org.openide.util.Exceptions;
 public class WbmImportAction extends Action {
 
 	public WbmImportAction() {
-		String name = "Import Wbm xml file";
+		String name = "Import WBM xml file";
 		putValue(NAME, name);
 		putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/wbm_import.gif"));
 		putValue(SHORT_DESCRIPTION, name);
@@ -36,7 +36,7 @@ public class WbmImportAction extends Action {
           try {  
         JFileChooser chooser = new JFileChooser();
         File file = null;
-        FileFilter filter = new FileNameExtensionFilter("XML WBM file", "xml");
+        FileFilter filter = new FileNameExtensionFilter("WBM XML file", "xml");
         chooser.setFileFilter(filter);
         int returnVal = chooser.showOpenDialog(null);
         if(returnVal == JFileChooser.APPROVE_OPTION) {
