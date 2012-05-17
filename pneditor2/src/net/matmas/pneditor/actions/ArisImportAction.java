@@ -26,7 +26,7 @@ import org.openide.util.Exceptions;
 public class ArisImportAction extends Action {
 
 	public ArisImportAction() {
-		String name = "Import Aml xml file";
+		String name = "Import ARIS xml file";
 		putValue(NAME, name);
 		putValue(SMALL_ICON, GraphicsTools.getIcon("pneditor/aml_import.jpg"));
 		putValue(SHORT_DESCRIPTION, name);
@@ -36,7 +36,7 @@ public class ArisImportAction extends Action {
           try {  
         JFileChooser chooser = new JFileChooser();
         File file = null;
-        FileFilter filter = new FileNameExtensionFilter("XML Aml file", "xml");
+        FileFilter filter = new FileNameExtensionFilter("ARIS XML file", "xml");
         chooser.setFileFilter(filter);
         int returnVal = chooser.showOpenDialog(null);
         if(returnVal == JFileChooser.APPROVE_OPTION) {
