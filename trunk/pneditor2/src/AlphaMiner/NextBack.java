@@ -18,7 +18,7 @@ public class NextBack {
     public NextBack(NextRelation nextrelation) {
         this.nextrelation = nextrelation;
         for(DoubleRelation dr : this.nextrelation.getNext()){
-            if(this.nextrelation.isThereOposit(dr)&&!dr.getStart().equals(dr.getEnd())){
+            if(!this.nextrelation.isThereOposit(dr)&&!dr.getStart().equals(dr.getEnd())){
                 if(!isThere(dr)){
                 nextBack.add(dr);
                 }

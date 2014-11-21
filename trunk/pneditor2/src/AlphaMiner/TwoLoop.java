@@ -26,6 +26,9 @@ public class TwoLoop {
                     if(!isThere(new DoubleRelation(t1, t2))){
                         this.twoloops.add(new DoubleRelation(t1, t2));
                     }
+                    if(!isThere(new DoubleRelation(t2, t1))){
+                        this.twoloops.add(new DoubleRelation(t2, t1));
+                    }
                 }
             }
         }
