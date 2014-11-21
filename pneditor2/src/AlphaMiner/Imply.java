@@ -26,7 +26,8 @@ public class Imply {
         this.twoloopback = twoloopback;
         
         for(DoubleRelation dr : this.next.getNext()){
-            if(!nextback.isThere(dr)||twoloop.isThere(dr)||twoloopback.isThere(dr)){
+            DoubleRelation oposit = new DoubleRelation(dr.getEnd(), dr.getStart());
+            if((!next.isThere(oposit))||twoloop.isThere(dr)||twoloopback.isThere(dr)){
                 MultiRelation mr = new MultiRelation();
                 mr.getStart().add(dr.getStart());
                 mr.getEnd().add(dr.getEnd());

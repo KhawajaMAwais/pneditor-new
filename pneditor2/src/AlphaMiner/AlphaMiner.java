@@ -45,12 +45,8 @@ public class AlphaMiner {
         this.endevents = new EndEvents(this.alphalog);
         this.alphalog.createAlphabet();
         transitionsclass = this.alphalog.getAlphabet();
-        createRelations(); 
-        this.alphalog.createAlphabet();
-        
-        
-        
-        
+        createRelations();
+        this.alphalog.createAlphabet();      
     }
     
     public void createRelations(){
@@ -58,14 +54,17 @@ public class AlphaMiner {
         twoloopback = new TwoLoopBack(twoloop);
         oneloop = new OneLoop(this.alphalog);
         nextcomplet = new NextRelation(this.alphalog);
+        for(DoubleRelation n:nextcomplet.getNext()){
+            System.out.println("'"+n.getStart()+"'->'"+n.getEnd()+"';");
+        }
         nextbackcomplet = new NextBack(nextcomplet);
         this.alphalog.createAlphabet();
         nowaycomplet = new NoWay(this.alphalog.getAlphabet(), nextcomplet);
         paralelcomplet = new Paralel(nextcomplet, nextbackcomplet, twoloop, twoloopback);
-        
         if(oneloop.getOneloop().size()>0){    
-        xwloop = new XwLoop(nextcomplet, twoloop, paralelcomplet, nowaycomplet, oneloop);
-        
+                  
+            xwloop = new XwLoop(nextcomplet, twoloop, paralelcomplet, nowaycomplet, oneloop);
+            
             
         for(String remove : oneloop.getOneloop()){
             this.alphalog.removeEvent(remove);

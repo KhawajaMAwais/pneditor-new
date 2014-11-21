@@ -20,10 +20,19 @@ public class NoWay {
         this.next = next;
         for(int i = 0; i<alphabet.size();i++){
             for(int j = 0; j<alphabet.size();j++){
-                DoubleRelation dr = new DoubleRelation(alphabet.get(i), alphabet.get(j));
-                if(!next.isThere(dr)){
-                    noway.add(dr);
-                }
+                if(i!=j)
+                {
+                    DoubleRelation dr = new DoubleRelation(alphabet.get(i), alphabet.get(j));
+                    DoubleRelation oposit = new DoubleRelation(dr.getEnd(), dr.getStart());
+                    if((!next.isThere(dr))&&(!next.isThere(oposit))){
+                        if(!isThere(dr)){
+                            noway.add(dr);
+                        }
+                        if(!isThere(oposit)){
+                            noway.add(oposit);
+                        }
+                    }
+                } 
             }
         }
     }
